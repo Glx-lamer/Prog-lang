@@ -1,0 +1,2219 @@
+
+opt_size_huge_flto.exe:     file format pei-x86-64
+
+
+Disassembly of section .text:
+
+0000000140001000 <__mingw_invalidParameterHandler>:
+   140001000:	c3                   	ret
+   140001001:	66 66 2e 0f 1f 84 00 	data16 cs nop WORD PTR [rax+rax*1+0x0]
+   140001008:	00 00 00 00 
+   14000100c:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+
+0000000140001010 <pre_c_init>:
+   140001010:	48 83 ec 28          	sub    rsp,0x28
+   140001014:	48 8b 05 f5 33 00 00 	mov    rax,QWORD PTR [rip+0x33f5]        # 140004410 <.refptr.__mingw_initltsdrot_force>
+   14000101b:	31 c9                	xor    ecx,ecx
+   14000101d:	c7 00 01 00 00 00    	mov    DWORD PTR [rax],0x1
+   140001023:	48 8b 05 f6 33 00 00 	mov    rax,QWORD PTR [rip+0x33f6]        # 140004420 <.refptr.__mingw_initltsdyn_force>
+   14000102a:	c7 00 01 00 00 00    	mov    DWORD PTR [rax],0x1
+   140001030:	48 8b 05 f9 33 00 00 	mov    rax,QWORD PTR [rip+0x33f9]        # 140004430 <.refptr.__mingw_initltssuo_force>
+   140001037:	c7 00 01 00 00 00    	mov    DWORD PTR [rax],0x1
+   14000103d:	48 8b 05 5c 33 00 00 	mov    rax,QWORD PTR [rip+0x335c]        # 1400043a0 <.refptr.__ImageBase>
+   140001044:	66 81 38 4d 5a       	cmp    WORD PTR [rax],0x5a4d
+   140001049:	75 0f                	jne    14000105a <pre_c_init+0x4a>
+   14000104b:	48 63 50 3c          	movsxd rdx,DWORD PTR [rax+0x3c]
+   14000104f:	48 01 d0             	add    rax,rdx
+   140001052:	81 38 50 45 00 00    	cmp    DWORD PTR [rax],0x4550
+   140001058:	74 66                	je     1400010c0 <pre_c_init+0xb0>
+   14000105a:	48 8b 05 9f 33 00 00 	mov    rax,QWORD PTR [rip+0x339f]        # 140004400 <.refptr.__mingw_app_type>
+   140001061:	89 0d a5 5f 00 00    	mov    DWORD PTR [rip+0x5fa5],ecx        # 14000700c <managedapp>
+   140001067:	8b 00                	mov    eax,DWORD PTR [rax]
+   140001069:	85 c0                	test   eax,eax
+   14000106b:	74 43                	je     1400010b0 <pre_c_init+0xa0>
+   14000106d:	b9 02 00 00 00       	mov    ecx,0x2
+   140001072:	e8 d9 17 00 00       	call   140002850 <__set_app_type>
+   140001077:	e8 54 17 00 00       	call   1400027d0 <__p__fmode>
+   14000107c:	48 8b 15 5d 34 00 00 	mov    rdx,QWORD PTR [rip+0x345d]        # 1400044e0 <.refptr._fmode>
+   140001083:	8b 12                	mov    edx,DWORD PTR [rdx]
+   140001085:	89 10                	mov    DWORD PTR [rax],edx
+   140001087:	e8 3c 17 00 00       	call   1400027c8 <__p__commode>
+   14000108c:	48 8b 15 2d 34 00 00 	mov    rdx,QWORD PTR [rip+0x342d]        # 1400044c0 <.refptr._commode>
+   140001093:	8b 12                	mov    edx,DWORD PTR [rdx]
+   140001095:	89 10                	mov    DWORD PTR [rax],edx
+   140001097:	e8 84 04 00 00       	call   140001520 <_setargv>
+   14000109c:	48 8b 05 dd 32 00 00 	mov    rax,QWORD PTR [rip+0x32dd]        # 140004380 <.refptr._MINGW_INSTALL_DEBUG_MATHERR>
+   1400010a3:	83 38 01             	cmp    DWORD PTR [rax],0x1
+   1400010a6:	74 50                	je     1400010f8 <pre_c_init+0xe8>
+   1400010a8:	31 c0                	xor    eax,eax
+   1400010aa:	48 83 c4 28          	add    rsp,0x28
+   1400010ae:	c3                   	ret
+   1400010af:	90                   	nop
+   1400010b0:	b9 01 00 00 00       	mov    ecx,0x1
+   1400010b5:	e8 96 17 00 00       	call   140002850 <__set_app_type>
+   1400010ba:	eb bb                	jmp    140001077 <pre_c_init+0x67>
+   1400010bc:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+   1400010c0:	0f b7 50 18          	movzx  edx,WORD PTR [rax+0x18]
+   1400010c4:	66 81 fa 0b 01       	cmp    dx,0x10b
+   1400010c9:	74 45                	je     140001110 <pre_c_init+0x100>
+   1400010cb:	66 81 fa 0b 02       	cmp    dx,0x20b
+   1400010d0:	75 88                	jne    14000105a <pre_c_init+0x4a>
+   1400010d2:	83 b8 84 00 00 00 0e 	cmp    DWORD PTR [rax+0x84],0xe
+   1400010d9:	0f 86 7b ff ff ff    	jbe    14000105a <pre_c_init+0x4a>
+   1400010df:	8b 90 f8 00 00 00    	mov    edx,DWORD PTR [rax+0xf8]
+   1400010e5:	31 c9                	xor    ecx,ecx
+   1400010e7:	85 d2                	test   edx,edx
+   1400010e9:	0f 95 c1             	setne  cl
+   1400010ec:	e9 69 ff ff ff       	jmp    14000105a <pre_c_init+0x4a>
+   1400010f1:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+   1400010f8:	48 8b 0d 01 34 00 00 	mov    rcx,QWORD PTR [rip+0x3401]        # 140004500 <.refptr._matherr>
+   1400010ff:	e8 8c 0b 00 00       	call   140001c90 <__mingw_setusermatherr>
+   140001104:	31 c0                	xor    eax,eax
+   140001106:	48 83 c4 28          	add    rsp,0x28
+   14000110a:	c3                   	ret
+   14000110b:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+   140001110:	83 78 74 0e          	cmp    DWORD PTR [rax+0x74],0xe
+   140001114:	0f 86 40 ff ff ff    	jbe    14000105a <pre_c_init+0x4a>
+   14000111a:	44 8b 80 e8 00 00 00 	mov    r8d,DWORD PTR [rax+0xe8]
+   140001121:	31 c9                	xor    ecx,ecx
+   140001123:	45 85 c0             	test   r8d,r8d
+   140001126:	0f 95 c1             	setne  cl
+   140001129:	e9 2c ff ff ff       	jmp    14000105a <pre_c_init+0x4a>
+   14000112e:	66 90                	xchg   ax,ax
+
+0000000140001130 <pre_cpp_init>:
+   140001130:	48 83 ec 38          	sub    rsp,0x38
+   140001134:	48 8b 05 d5 33 00 00 	mov    rax,QWORD PTR [rip+0x33d5]        # 140004510 <.refptr._newmode>
+   14000113b:	4c 8d 05 d6 5e 00 00 	lea    r8,[rip+0x5ed6]        # 140007018 <envp>
+   140001142:	48 8d 15 d7 5e 00 00 	lea    rdx,[rip+0x5ed7]        # 140007020 <argv>
+   140001149:	48 8d 0d d8 5e 00 00 	lea    rcx,[rip+0x5ed8]        # 140007028 <argc>
+   140001150:	8b 00                	mov    eax,DWORD PTR [rax]
+   140001152:	89 05 ac 5e 00 00    	mov    DWORD PTR [rip+0x5eac],eax        # 140007004 <startinfo>
+   140001158:	48 8b 05 71 33 00 00 	mov    rax,QWORD PTR [rip+0x3371]        # 1400044d0 <.refptr._dowildcard>
+   14000115f:	44 8b 08             	mov    r9d,DWORD PTR [rax]
+   140001162:	48 8d 05 9b 5e 00 00 	lea    rax,[rip+0x5e9b]        # 140007004 <startinfo>
+   140001169:	48 89 44 24 20       	mov    QWORD PTR [rsp+0x20],rax
+   14000116e:	e8 0d 14 00 00       	call   140002580 <__getmainargs>
+   140001173:	90                   	nop
+   140001174:	48 83 c4 38          	add    rsp,0x38
+   140001178:	c3                   	ret
+   140001179:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+
+0000000140001180 <__tmainCRTStartup>:
+   140001180:	41 54                	push   r12
+   140001182:	55                   	push   rbp
+   140001183:	57                   	push   rdi
+   140001184:	56                   	push   rsi
+   140001185:	53                   	push   rbx
+   140001186:	48 83 ec 20          	sub    rsp,0x20
+   14000118a:	48 8b 1d cf 32 00 00 	mov    rbx,QWORD PTR [rip+0x32cf]        # 140004460 <.refptr.__native_startup_lock>
+   140001191:	48 8b 2d 28 71 00 00 	mov    rbp,QWORD PTR [rip+0x7128]        # 1400082c0 <__imp_Sleep>
+   140001198:	31 ff                	xor    edi,edi
+   14000119a:	65 48 8b 04 25 30 00 	mov    rax,QWORD PTR gs:0x30
+   1400011a1:	00 00 
+   1400011a3:	48 8b 70 08          	mov    rsi,QWORD PTR [rax+0x8]
+   1400011a7:	eb 17                	jmp    1400011c0 <__tmainCRTStartup+0x40>
+   1400011a9:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+   1400011b0:	48 39 c6             	cmp    rsi,rax
+   1400011b3:	0f 84 67 01 00 00    	je     140001320 <__tmainCRTStartup+0x1a0>
+   1400011b9:	b9 e8 03 00 00       	mov    ecx,0x3e8
+   1400011be:	ff d5                	call   rbp
+   1400011c0:	48 89 f8             	mov    rax,rdi
+   1400011c3:	f0 48 0f b1 33       	lock cmpxchg QWORD PTR [rbx],rsi
+   1400011c8:	48 85 c0             	test   rax,rax
+   1400011cb:	75 e3                	jne    1400011b0 <__tmainCRTStartup+0x30>
+   1400011cd:	48 8b 35 9c 32 00 00 	mov    rsi,QWORD PTR [rip+0x329c]        # 140004470 <.refptr.__native_startup_state>
+   1400011d4:	31 ff                	xor    edi,edi
+   1400011d6:	8b 06                	mov    eax,DWORD PTR [rsi]
+   1400011d8:	83 f8 01             	cmp    eax,0x1
+   1400011db:	0f 84 56 01 00 00    	je     140001337 <__tmainCRTStartup+0x1b7>
+   1400011e1:	8b 06                	mov    eax,DWORD PTR [rsi]
+   1400011e3:	85 c0                	test   eax,eax
+   1400011e5:	0f 84 b5 01 00 00    	je     1400013a0 <__tmainCRTStartup+0x220>
+   1400011eb:	c7 05 13 5e 00 00 01 	mov    DWORD PTR [rip+0x5e13],0x1        # 140007008 <has_cctor>
+   1400011f2:	00 00 00 
+   1400011f5:	8b 06                	mov    eax,DWORD PTR [rsi]
+   1400011f7:	83 f8 01             	cmp    eax,0x1
+   1400011fa:	0f 84 4c 01 00 00    	je     14000134c <__tmainCRTStartup+0x1cc>
+   140001200:	85 ff                	test   edi,edi
+   140001202:	0f 84 65 01 00 00    	je     14000136d <__tmainCRTStartup+0x1ed>
+   140001208:	48 8b 05 c1 31 00 00 	mov    rax,QWORD PTR [rip+0x31c1]        # 1400043d0 <.refptr.__dyn_tls_init_callback>
+   14000120f:	48 8b 00             	mov    rax,QWORD PTR [rax]
+   140001212:	48 85 c0             	test   rax,rax
+   140001215:	74 0c                	je     140001223 <__tmainCRTStartup+0xa3>
+   140001217:	45 31 c0             	xor    r8d,r8d
+   14000121a:	ba 02 00 00 00       	mov    edx,0x2
+   14000121f:	31 c9                	xor    ecx,ecx
+   140001221:	ff d0                	call   rax
+   140001223:	e8 c8 06 00 00       	call   1400018f0 <_pei386_runtime_relocator>
+   140001228:	48 8b 0d c1 32 00 00 	mov    rcx,QWORD PTR [rip+0x32c1]        # 1400044f0 <.refptr._gnu_exception_handler>
+   14000122f:	ff 15 83 70 00 00    	call   QWORD PTR [rip+0x7083]        # 1400082b8 <__imp_SetUnhandledExceptionFilter>
+   140001235:	48 8b 15 14 32 00 00 	mov    rdx,QWORD PTR [rip+0x3214]        # 140004450 <.refptr.__mingw_oldexcpt_handler>
+   14000123c:	48 8d 0d bd fd ff ff 	lea    rcx,[rip+0xfffffffffffffdbd]        # 140001000 <__mingw_invalidParameterHandler>
+   140001243:	48 89 02             	mov    QWORD PTR [rdx],rax
+   140001246:	e8 0d 16 00 00       	call   140002858 <_set_invalid_parameter_handler>
+   14000124b:	e8 b0 04 00 00       	call   140001700 <_fpreset>
+   140001250:	8b 1d d2 5d 00 00    	mov    ebx,DWORD PTR [rip+0x5dd2]        # 140007028 <argc>
+   140001256:	8d 7b 01             	lea    edi,[rbx+0x1]
+   140001259:	48 63 ff             	movsxd rdi,edi
+   14000125c:	48 c1 e7 03          	shl    rdi,0x3
+   140001260:	48 89 f9             	mov    rcx,rdi
+   140001263:	e8 50 16 00 00       	call   1400028b8 <malloc>
+   140001268:	4c 8b 25 b1 5d 00 00 	mov    r12,QWORD PTR [rip+0x5db1]        # 140007020 <argv>
+   14000126f:	48 89 c5             	mov    rbp,rax
+   140001272:	85 db                	test   ebx,ebx
+   140001274:	0f 8e 46 01 00 00    	jle    1400013c0 <__tmainCRTStartup+0x240>
+   14000127a:	48 83 ef 08          	sub    rdi,0x8
+   14000127e:	31 db                	xor    ebx,ebx
+   140001280:	49 8b 0c 1c          	mov    rcx,QWORD PTR [r12+rbx*1]
+   140001284:	e8 27 15 00 00       	call   1400027b0 <strlen>
+   140001289:	48 8d 70 01          	lea    rsi,[rax+0x1]
+   14000128d:	48 89 f1             	mov    rcx,rsi
+   140001290:	e8 23 16 00 00       	call   1400028b8 <malloc>
+   140001295:	49 89 f0             	mov    r8,rsi
+   140001298:	48 89 44 1d 00       	mov    QWORD PTR [rbp+rbx*1+0x0],rax
+   14000129d:	49 8b 14 1c          	mov    rdx,QWORD PTR [r12+rbx*1]
+   1400012a1:	48 89 c1             	mov    rcx,rax
+   1400012a4:	48 83 c3 08          	add    rbx,0x8
+   1400012a8:	e8 db 15 00 00       	call   140002888 <memcpy>
+   1400012ad:	48 39 df             	cmp    rdi,rbx
+   1400012b0:	75 ce                	jne    140001280 <__tmainCRTStartup+0x100>
+   1400012b2:	48 01 ef             	add    rdi,rbp
+   1400012b5:	48 c7 07 00 00 00 00 	mov    QWORD PTR [rdi],0x0
+   1400012bc:	48 89 2d 5d 5d 00 00 	mov    QWORD PTR [rip+0x5d5d],rbp        # 140007020 <argv>
+   1400012c3:	e8 38 02 00 00       	call   140001500 <__main>
+   1400012c8:	48 8b 05 11 31 00 00 	mov    rax,QWORD PTR [rip+0x3111]        # 1400043e0 <.refptr.__imp___initenv>
+   1400012cf:	4c 8b 05 42 5d 00 00 	mov    r8,QWORD PTR [rip+0x5d42]        # 140007018 <envp>
+   1400012d6:	8b 0d 4c 5d 00 00    	mov    ecx,DWORD PTR [rip+0x5d4c]        # 140007028 <argc>
+   1400012dc:	48 8b 00             	mov    rax,QWORD PTR [rax]
+   1400012df:	4c 89 00             	mov    QWORD PTR [rax],r8
+   1400012e2:	48 8b 15 37 5d 00 00 	mov    rdx,QWORD PTR [rip+0x5d37]        # 140007020 <argv>
+   1400012e9:	e8 82 16 00 00       	call   140002970 <main>
+   1400012ee:	8b 0d 18 5d 00 00    	mov    ecx,DWORD PTR [rip+0x5d18]        # 14000700c <managedapp>
+   1400012f4:	89 05 16 5d 00 00    	mov    DWORD PTR [rip+0x5d16],eax        # 140007010 <mainret>
+   1400012fa:	85 c9                	test   ecx,ecx
+   1400012fc:	0f 84 c6 00 00 00    	je     1400013c8 <__tmainCRTStartup+0x248>
+   140001302:	8b 15 00 5d 00 00    	mov    edx,DWORD PTR [rip+0x5d00]        # 140007008 <has_cctor>
+   140001308:	85 d2                	test   edx,edx
+   14000130a:	74 74                	je     140001380 <__tmainCRTStartup+0x200>
+   14000130c:	48 83 c4 20          	add    rsp,0x20
+   140001310:	5b                   	pop    rbx
+   140001311:	5e                   	pop    rsi
+   140001312:	5f                   	pop    rdi
+   140001313:	5d                   	pop    rbp
+   140001314:	41 5c                	pop    r12
+   140001316:	c3                   	ret
+   140001317:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+   14000131e:	00 00 
+   140001320:	48 8b 35 49 31 00 00 	mov    rsi,QWORD PTR [rip+0x3149]        # 140004470 <.refptr.__native_startup_state>
+   140001327:	bf 01 00 00 00       	mov    edi,0x1
+   14000132c:	8b 06                	mov    eax,DWORD PTR [rsi]
+   14000132e:	83 f8 01             	cmp    eax,0x1
+   140001331:	0f 85 aa fe ff ff    	jne    1400011e1 <__tmainCRTStartup+0x61>
+   140001337:	b9 1f 00 00 00       	mov    ecx,0x1f
+   14000133c:	e8 5f 13 00 00       	call   1400026a0 <_amsg_exit>
+   140001341:	8b 06                	mov    eax,DWORD PTR [rsi]
+   140001343:	83 f8 01             	cmp    eax,0x1
+   140001346:	0f 85 b4 fe ff ff    	jne    140001200 <__tmainCRTStartup+0x80>
+   14000134c:	48 8b 15 3d 31 00 00 	mov    rdx,QWORD PTR [rip+0x313d]        # 140004490 <.refptr.__xc_z>
+   140001353:	48 8b 0d 26 31 00 00 	mov    rcx,QWORD PTR [rip+0x3126]        # 140004480 <.refptr.__xc_a>
+   14000135a:	e8 e9 14 00 00       	call   140002848 <_initterm>
+   14000135f:	c7 06 02 00 00 00    	mov    DWORD PTR [rsi],0x2
+   140001365:	85 ff                	test   edi,edi
+   140001367:	0f 85 9b fe ff ff    	jne    140001208 <__tmainCRTStartup+0x88>
+   14000136d:	31 c0                	xor    eax,eax
+   14000136f:	48 87 03             	xchg   QWORD PTR [rbx],rax
+   140001372:	e9 91 fe ff ff       	jmp    140001208 <__tmainCRTStartup+0x88>
+   140001377:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+   14000137e:	00 00 
+   140001380:	e8 83 14 00 00       	call   140002808 <_cexit>
+   140001385:	8b 05 85 5c 00 00    	mov    eax,DWORD PTR [rip+0x5c85]        # 140007010 <mainret>
+   14000138b:	48 83 c4 20          	add    rsp,0x20
+   14000138f:	5b                   	pop    rbx
+   140001390:	5e                   	pop    rsi
+   140001391:	5f                   	pop    rdi
+   140001392:	5d                   	pop    rbp
+   140001393:	41 5c                	pop    r12
+   140001395:	c3                   	ret
+   140001396:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+   14000139d:	00 00 00 
+   1400013a0:	48 8b 15 09 31 00 00 	mov    rdx,QWORD PTR [rip+0x3109]        # 1400044b0 <.refptr.__xi_z>
+   1400013a7:	48 8b 0d f2 30 00 00 	mov    rcx,QWORD PTR [rip+0x30f2]        # 1400044a0 <.refptr.__xi_a>
+   1400013ae:	c7 06 01 00 00 00    	mov    DWORD PTR [rsi],0x1
+   1400013b4:	e8 8f 14 00 00       	call   140002848 <_initterm>
+   1400013b9:	e9 37 fe ff ff       	jmp    1400011f5 <__tmainCRTStartup+0x75>
+   1400013be:	66 90                	xchg   ax,ax
+   1400013c0:	48 89 c7             	mov    rdi,rax
+   1400013c3:	e9 ed fe ff ff       	jmp    1400012b5 <__tmainCRTStartup+0x135>
+   1400013c8:	89 c1                	mov    ecx,eax
+   1400013ca:	e8 99 14 00 00       	call   140002868 <exit>
+   1400013cf:	90                   	nop
+
+00000001400013d0 <WinMainCRTStartup>:
+   1400013d0:	48 83 ec 28          	sub    rsp,0x28
+
+00000001400013d4 <.l_startw>:
+   1400013d4:	48 8b 05 25 30 00 00 	mov    rax,QWORD PTR [rip+0x3025]        # 140004400 <.refptr.__mingw_app_type>
+   1400013db:	c7 00 01 00 00 00    	mov    DWORD PTR [rax],0x1
+   1400013e1:	e8 9a fd ff ff       	call   140001180 <__tmainCRTStartup>
+   1400013e6:	90                   	nop
+
+00000001400013e7 <.l_endw>:
+   1400013e7:	90                   	nop
+   1400013e8:	48 83 c4 28          	add    rsp,0x28
+   1400013ec:	c3                   	ret
+   1400013ed:	0f 1f 00             	nop    DWORD PTR [rax]
+
+00000001400013f0 <mainCRTStartup>:
+   1400013f0:	48 83 ec 28          	sub    rsp,0x28
+
+00000001400013f4 <.l_start>:
+   1400013f4:	48 8b 05 05 30 00 00 	mov    rax,QWORD PTR [rip+0x3005]        # 140004400 <.refptr.__mingw_app_type>
+   1400013fb:	c7 00 00 00 00 00    	mov    DWORD PTR [rax],0x0
+   140001401:	e8 7a fd ff ff       	call   140001180 <__tmainCRTStartup>
+   140001406:	90                   	nop
+
+0000000140001407 <.l_end>:
+   140001407:	90                   	nop
+   140001408:	48 83 c4 28          	add    rsp,0x28
+   14000140c:	c3                   	ret
+   14000140d:	0f 1f 00             	nop    DWORD PTR [rax]
+
+0000000140001410 <atexit>:
+   140001410:	48 83 ec 28          	sub    rsp,0x28
+   140001414:	e8 47 12 00 00       	call   140002660 <_onexit>
+   140001419:	48 83 f8 01          	cmp    rax,0x1
+   14000141d:	19 c0                	sbb    eax,eax
+   14000141f:	48 83 c4 28          	add    rsp,0x28
+   140001423:	c3                   	ret
+   140001424:	90                   	nop
+   140001425:	90                   	nop
+   140001426:	90                   	nop
+   140001427:	90                   	nop
+   140001428:	90                   	nop
+   140001429:	90                   	nop
+   14000142a:	90                   	nop
+   14000142b:	90                   	nop
+   14000142c:	90                   	nop
+   14000142d:	90                   	nop
+   14000142e:	90                   	nop
+   14000142f:	90                   	nop
+
+0000000140001430 <__gcc_register_frame>:
+   140001430:	48 8d 0d 09 00 00 00 	lea    rcx,[rip+0x9]        # 140001440 <__gcc_deregister_frame>
+   140001437:	e9 d4 ff ff ff       	jmp    140001410 <atexit>
+   14000143c:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+
+0000000140001440 <__gcc_deregister_frame>:
+   140001440:	c3                   	ret
+   140001441:	90                   	nop
+   140001442:	90                   	nop
+   140001443:	90                   	nop
+   140001444:	90                   	nop
+   140001445:	90                   	nop
+   140001446:	90                   	nop
+   140001447:	90                   	nop
+   140001448:	90                   	nop
+   140001449:	90                   	nop
+   14000144a:	90                   	nop
+   14000144b:	90                   	nop
+   14000144c:	90                   	nop
+   14000144d:	90                   	nop
+   14000144e:	90                   	nop
+   14000144f:	90                   	nop
+
+0000000140001450 <__do_global_dtors>:
+   140001450:	48 83 ec 28          	sub    rsp,0x28
+   140001454:	48 8b 05 a5 1b 00 00 	mov    rax,QWORD PTR [rip+0x1ba5]        # 140003000 <__data_start__>
+   14000145b:	48 8b 00             	mov    rax,QWORD PTR [rax]
+   14000145e:	48 85 c0             	test   rax,rax
+   140001461:	74 22                	je     140001485 <__do_global_dtors+0x35>
+   140001463:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+   140001468:	ff d0                	call   rax
+   14000146a:	48 8b 05 8f 1b 00 00 	mov    rax,QWORD PTR [rip+0x1b8f]        # 140003000 <__data_start__>
+   140001471:	48 8d 50 08          	lea    rdx,[rax+0x8]
+   140001475:	48 8b 40 08          	mov    rax,QWORD PTR [rax+0x8]
+   140001479:	48 89 15 80 1b 00 00 	mov    QWORD PTR [rip+0x1b80],rdx        # 140003000 <__data_start__>
+   140001480:	48 85 c0             	test   rax,rax
+   140001483:	75 e3                	jne    140001468 <__do_global_dtors+0x18>
+   140001485:	48 83 c4 28          	add    rsp,0x28
+   140001489:	c3                   	ret
+   14000148a:	66 0f 1f 44 00 00    	nop    WORD PTR [rax+rax*1+0x0]
+
+0000000140001490 <__do_global_ctors>:
+   140001490:	56                   	push   rsi
+   140001491:	53                   	push   rbx
+   140001492:	48 83 ec 28          	sub    rsp,0x28
+   140001496:	48 8b 15 f3 2e 00 00 	mov    rdx,QWORD PTR [rip+0x2ef3]        # 140004390 <.refptr.__CTOR_LIST__>
+   14000149d:	48 8b 02             	mov    rax,QWORD PTR [rdx]
+   1400014a0:	89 c1                	mov    ecx,eax
+   1400014a2:	83 f8 ff             	cmp    eax,0xffffffff
+   1400014a5:	74 39                	je     1400014e0 <__do_global_ctors+0x50>
+   1400014a7:	85 c9                	test   ecx,ecx
+   1400014a9:	74 20                	je     1400014cb <__do_global_ctors+0x3b>
+   1400014ab:	89 c8                	mov    eax,ecx
+   1400014ad:	83 e9 01             	sub    ecx,0x1
+   1400014b0:	48 8d 1c c2          	lea    rbx,[rdx+rax*8]
+   1400014b4:	48 29 c8             	sub    rax,rcx
+   1400014b7:	48 8d 74 c2 f8       	lea    rsi,[rdx+rax*8-0x8]
+   1400014bc:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+   1400014c0:	ff 13                	call   QWORD PTR [rbx]
+   1400014c2:	48 83 eb 08          	sub    rbx,0x8
+   1400014c6:	48 39 f3             	cmp    rbx,rsi
+   1400014c9:	75 f5                	jne    1400014c0 <__do_global_ctors+0x30>
+   1400014cb:	48 8d 0d 7e ff ff ff 	lea    rcx,[rip+0xffffffffffffff7e]        # 140001450 <__do_global_dtors>
+   1400014d2:	48 83 c4 28          	add    rsp,0x28
+   1400014d6:	5b                   	pop    rbx
+   1400014d7:	5e                   	pop    rsi
+   1400014d8:	e9 33 ff ff ff       	jmp    140001410 <atexit>
+   1400014dd:	0f 1f 00             	nop    DWORD PTR [rax]
+   1400014e0:	31 c0                	xor    eax,eax
+   1400014e2:	66 0f 1f 44 00 00    	nop    WORD PTR [rax+rax*1+0x0]
+   1400014e8:	44 8d 40 01          	lea    r8d,[rax+0x1]
+   1400014ec:	89 c1                	mov    ecx,eax
+   1400014ee:	4a 83 3c c2 00       	cmp    QWORD PTR [rdx+r8*8],0x0
+   1400014f3:	4c 89 c0             	mov    rax,r8
+   1400014f6:	75 f0                	jne    1400014e8 <__do_global_ctors+0x58>
+   1400014f8:	eb ad                	jmp    1400014a7 <__do_global_ctors+0x17>
+   1400014fa:	66 0f 1f 44 00 00    	nop    WORD PTR [rax+rax*1+0x0]
+
+0000000140001500 <__main>:
+   140001500:	8b 05 3a 5b 00 00    	mov    eax,DWORD PTR [rip+0x5b3a]        # 140007040 <initialized>
+   140001506:	85 c0                	test   eax,eax
+   140001508:	74 06                	je     140001510 <__main+0x10>
+   14000150a:	c3                   	ret
+   14000150b:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+   140001510:	c7 05 26 5b 00 00 01 	mov    DWORD PTR [rip+0x5b26],0x1        # 140007040 <initialized>
+   140001517:	00 00 00 
+   14000151a:	e9 71 ff ff ff       	jmp    140001490 <__do_global_ctors>
+   14000151f:	90                   	nop
+
+0000000140001520 <_setargv>:
+   140001520:	31 c0                	xor    eax,eax
+   140001522:	c3                   	ret
+   140001523:	90                   	nop
+   140001524:	90                   	nop
+   140001525:	90                   	nop
+   140001526:	90                   	nop
+   140001527:	90                   	nop
+   140001528:	90                   	nop
+   140001529:	90                   	nop
+   14000152a:	90                   	nop
+   14000152b:	90                   	nop
+   14000152c:	90                   	nop
+   14000152d:	90                   	nop
+   14000152e:	90                   	nop
+   14000152f:	90                   	nop
+
+0000000140001530 <__dyn_tls_dtor>:
+   140001530:	48 83 ec 28          	sub    rsp,0x28
+   140001534:	83 fa 03             	cmp    edx,0x3
+   140001537:	74 17                	je     140001550 <__dyn_tls_dtor+0x20>
+   140001539:	85 d2                	test   edx,edx
+   14000153b:	74 13                	je     140001550 <__dyn_tls_dtor+0x20>
+   14000153d:	b8 01 00 00 00       	mov    eax,0x1
+   140001542:	48 83 c4 28          	add    rsp,0x28
+   140001546:	c3                   	ret
+   140001547:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+   14000154e:	00 00 
+   140001550:	e8 7b 0a 00 00       	call   140001fd0 <__mingw_TLScallback>
+   140001555:	b8 01 00 00 00       	mov    eax,0x1
+   14000155a:	48 83 c4 28          	add    rsp,0x28
+   14000155e:	c3                   	ret
+   14000155f:	90                   	nop
+
+0000000140001560 <__dyn_tls_init>:
+   140001560:	56                   	push   rsi
+   140001561:	53                   	push   rbx
+   140001562:	48 83 ec 28          	sub    rsp,0x28
+   140001566:	48 8b 05 03 2e 00 00 	mov    rax,QWORD PTR [rip+0x2e03]        # 140004370 <.refptr._CRT_MT>
+   14000156d:	83 38 02             	cmp    DWORD PTR [rax],0x2
+   140001570:	74 06                	je     140001578 <__dyn_tls_init+0x18>
+   140001572:	c7 00 02 00 00 00    	mov    DWORD PTR [rax],0x2
+   140001578:	83 fa 02             	cmp    edx,0x2
+   14000157b:	74 13                	je     140001590 <__dyn_tls_init+0x30>
+   14000157d:	83 fa 01             	cmp    edx,0x1
+   140001580:	74 4e                	je     1400015d0 <__dyn_tls_init+0x70>
+   140001582:	b8 01 00 00 00       	mov    eax,0x1
+   140001587:	48 83 c4 28          	add    rsp,0x28
+   14000158b:	5b                   	pop    rbx
+   14000158c:	5e                   	pop    rsi
+   14000158d:	c3                   	ret
+   14000158e:	66 90                	xchg   ax,ax
+   140001590:	48 8d 1d c1 7a 00 00 	lea    rbx,[rip+0x7ac1]        # 140009058 <__xd_z>
+   140001597:	48 8d 35 ba 7a 00 00 	lea    rsi,[rip+0x7aba]        # 140009058 <__xd_z>
+   14000159e:	48 39 f3             	cmp    rbx,rsi
+   1400015a1:	74 df                	je     140001582 <__dyn_tls_init+0x22>
+   1400015a3:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+   1400015a8:	48 8b 03             	mov    rax,QWORD PTR [rbx]
+   1400015ab:	48 85 c0             	test   rax,rax
+   1400015ae:	74 02                	je     1400015b2 <__dyn_tls_init+0x52>
+   1400015b0:	ff d0                	call   rax
+   1400015b2:	48 83 c3 08          	add    rbx,0x8
+   1400015b6:	48 39 f3             	cmp    rbx,rsi
+   1400015b9:	75 ed                	jne    1400015a8 <__dyn_tls_init+0x48>
+   1400015bb:	b8 01 00 00 00       	mov    eax,0x1
+   1400015c0:	48 83 c4 28          	add    rsp,0x28
+   1400015c4:	5b                   	pop    rbx
+   1400015c5:	5e                   	pop    rsi
+   1400015c6:	c3                   	ret
+   1400015c7:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+   1400015ce:	00 00 
+   1400015d0:	e8 fb 09 00 00       	call   140001fd0 <__mingw_TLScallback>
+   1400015d5:	b8 01 00 00 00       	mov    eax,0x1
+   1400015da:	48 83 c4 28          	add    rsp,0x28
+   1400015de:	5b                   	pop    rbx
+   1400015df:	5e                   	pop    rsi
+   1400015e0:	c3                   	ret
+   1400015e1:	66 66 2e 0f 1f 84 00 	data16 cs nop WORD PTR [rax+rax*1+0x0]
+   1400015e8:	00 00 00 00 
+   1400015ec:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+
+00000001400015f0 <__tlregdtor>:
+   1400015f0:	31 c0                	xor    eax,eax
+   1400015f2:	c3                   	ret
+   1400015f3:	90                   	nop
+   1400015f4:	90                   	nop
+   1400015f5:	90                   	nop
+   1400015f6:	90                   	nop
+   1400015f7:	90                   	nop
+   1400015f8:	90                   	nop
+   1400015f9:	90                   	nop
+   1400015fa:	90                   	nop
+   1400015fb:	90                   	nop
+   1400015fc:	90                   	nop
+   1400015fd:	90                   	nop
+   1400015fe:	90                   	nop
+   1400015ff:	90                   	nop
+
+0000000140001600 <_matherr>:
+   140001600:	56                   	push   rsi
+   140001601:	53                   	push   rbx
+   140001602:	48 83 ec 78          	sub    rsp,0x78
+   140001606:	0f 11 74 24 40       	movups XMMWORD PTR [rsp+0x40],xmm6
+   14000160b:	0f 11 7c 24 50       	movups XMMWORD PTR [rsp+0x50],xmm7
+   140001610:	44 0f 11 44 24 60    	movups XMMWORD PTR [rsp+0x60],xmm8
+   140001616:	83 39 06             	cmp    DWORD PTR [rcx],0x6
+   140001619:	0f 87 cd 00 00 00    	ja     1400016ec <_matherr+0xec>
+   14000161f:	8b 01                	mov    eax,DWORD PTR [rcx]
+   140001621:	48 8d 15 7c 2b 00 00 	lea    rdx,[rip+0x2b7c]        # 1400041a4 <.rdata+0x124>
+   140001628:	48 63 04 82          	movsxd rax,DWORD PTR [rdx+rax*4]
+   14000162c:	48 01 d0             	add    rax,rdx
+   14000162f:	ff e0                	jmp    rax
+   140001631:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+   140001638:	48 8d 1d 60 2a 00 00 	lea    rbx,[rip+0x2a60]        # 14000409f <.rdata+0x1f>
+   14000163f:	f2 44 0f 10 41 20    	movsd  xmm8,QWORD PTR [rcx+0x20]
+   140001645:	f2 0f 10 79 18       	movsd  xmm7,QWORD PTR [rcx+0x18]
+   14000164a:	f2 0f 10 71 10       	movsd  xmm6,QWORD PTR [rcx+0x10]
+   14000164f:	48 8b 71 08          	mov    rsi,QWORD PTR [rcx+0x8]
+   140001653:	b9 02 00 00 00       	mov    ecx,0x2
+   140001658:	e8 63 11 00 00       	call   1400027c0 <__acrt_iob_func>
+   14000165d:	f2 44 0f 11 44 24 30 	movsd  QWORD PTR [rsp+0x30],xmm8
+   140001664:	49 89 d8             	mov    r8,rbx
+   140001667:	48 8d 15 0a 2b 00 00 	lea    rdx,[rip+0x2b0a]        # 140004178 <.rdata+0xf8>
+   14000166e:	f2 0f 11 7c 24 28    	movsd  QWORD PTR [rsp+0x28],xmm7
+   140001674:	48 89 c1             	mov    rcx,rax
+   140001677:	49 89 f1             	mov    r9,rsi
+   14000167a:	f2 0f 11 74 24 20    	movsd  QWORD PTR [rsp+0x20],xmm6
+   140001680:	e8 ab 0e 00 00       	call   140002530 <fprintf>
+   140001685:	90                   	nop
+   140001686:	0f 10 74 24 40       	movups xmm6,XMMWORD PTR [rsp+0x40]
+   14000168b:	0f 10 7c 24 50       	movups xmm7,XMMWORD PTR [rsp+0x50]
+   140001690:	31 c0                	xor    eax,eax
+   140001692:	44 0f 10 44 24 60    	movups xmm8,XMMWORD PTR [rsp+0x60]
+   140001698:	48 83 c4 78          	add    rsp,0x78
+   14000169c:	5b                   	pop    rbx
+   14000169d:	5e                   	pop    rsi
+   14000169e:	c3                   	ret
+   14000169f:	90                   	nop
+   1400016a0:	48 8d 1d d9 29 00 00 	lea    rbx,[rip+0x29d9]        # 140004080 <.rdata>
+   1400016a7:	eb 96                	jmp    14000163f <_matherr+0x3f>
+   1400016a9:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+   1400016b0:	48 8d 1d 29 2a 00 00 	lea    rbx,[rip+0x2a29]        # 1400040e0 <.rdata+0x60>
+   1400016b7:	eb 86                	jmp    14000163f <_matherr+0x3f>
+   1400016b9:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+   1400016c0:	48 8d 1d f9 29 00 00 	lea    rbx,[rip+0x29f9]        # 1400040c0 <.rdata+0x40>
+   1400016c7:	e9 73 ff ff ff       	jmp    14000163f <_matherr+0x3f>
+   1400016cc:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+   1400016d0:	48 8d 1d 59 2a 00 00 	lea    rbx,[rip+0x2a59]        # 140004130 <.rdata+0xb0>
+   1400016d7:	e9 63 ff ff ff       	jmp    14000163f <_matherr+0x3f>
+   1400016dc:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+   1400016e0:	48 8d 1d 21 2a 00 00 	lea    rbx,[rip+0x2a21]        # 140004108 <.rdata+0x88>
+   1400016e7:	e9 53 ff ff ff       	jmp    14000163f <_matherr+0x3f>
+   1400016ec:	48 8d 1d 73 2a 00 00 	lea    rbx,[rip+0x2a73]        # 140004166 <.rdata+0xe6>
+   1400016f3:	e9 47 ff ff ff       	jmp    14000163f <_matherr+0x3f>
+   1400016f8:	90                   	nop
+   1400016f9:	90                   	nop
+   1400016fa:	90                   	nop
+   1400016fb:	90                   	nop
+   1400016fc:	90                   	nop
+   1400016fd:	90                   	nop
+   1400016fe:	90                   	nop
+   1400016ff:	90                   	nop
+
+0000000140001700 <_fpreset>:
+   140001700:	db e3                	fninit
+   140001702:	c3                   	ret
+   140001703:	90                   	nop
+   140001704:	90                   	nop
+   140001705:	90                   	nop
+   140001706:	90                   	nop
+   140001707:	90                   	nop
+   140001708:	90                   	nop
+   140001709:	90                   	nop
+   14000170a:	90                   	nop
+   14000170b:	90                   	nop
+   14000170c:	90                   	nop
+   14000170d:	90                   	nop
+   14000170e:	90                   	nop
+   14000170f:	90                   	nop
+
+0000000140001710 <__report_error>:
+   140001710:	56                   	push   rsi
+   140001711:	53                   	push   rbx
+   140001712:	48 83 ec 38          	sub    rsp,0x38
+   140001716:	48 89 cb             	mov    rbx,rcx
+   140001719:	48 8d 44 24 58       	lea    rax,[rsp+0x58]
+   14000171e:	b9 02 00 00 00       	mov    ecx,0x2
+   140001723:	48 89 54 24 58       	mov    QWORD PTR [rsp+0x58],rdx
+   140001728:	4c 89 44 24 60       	mov    QWORD PTR [rsp+0x60],r8
+   14000172d:	4c 89 4c 24 68       	mov    QWORD PTR [rsp+0x68],r9
+   140001732:	48 89 44 24 28       	mov    QWORD PTR [rsp+0x28],rax
+   140001737:	e8 84 10 00 00       	call   1400027c0 <__acrt_iob_func>
+   14000173c:	41 b8 1b 00 00 00    	mov    r8d,0x1b
+   140001742:	ba 01 00 00 00       	mov    edx,0x1
+   140001747:	48 8d 0d 72 2a 00 00 	lea    rcx,[rip+0x2a72]        # 1400041c0 <.rdata>
+   14000174e:	49 89 c1             	mov    r9,rax
+   140001751:	e8 92 10 00 00       	call   1400027e8 <fwrite>
+   140001756:	48 8b 74 24 28       	mov    rsi,QWORD PTR [rsp+0x28]
+   14000175b:	b9 02 00 00 00       	mov    ecx,0x2
+   140001760:	e8 5b 10 00 00       	call   1400027c0 <__acrt_iob_func>
+   140001765:	48 89 da             	mov    rdx,rbx
+   140001768:	48 89 c1             	mov    rcx,rax
+   14000176b:	49 89 f0             	mov    r8,rsi
+   14000176e:	e8 9d 0d 00 00       	call   140002510 <vfprintf>
+   140001773:	e8 e8 10 00 00       	call   140002860 <abort>
+   140001778:	90                   	nop
+   140001779:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+
+0000000140001780 <mark_section_writable>:
+   140001780:	57                   	push   rdi
+   140001781:	56                   	push   rsi
+   140001782:	53                   	push   rbx
+   140001783:	48 83 ec 50          	sub    rsp,0x50
+   140001787:	48 63 35 16 59 00 00 	movsxd rsi,DWORD PTR [rip+0x5916]        # 1400070a4 <maxSections>
+   14000178e:	48 89 cb             	mov    rbx,rcx
+   140001791:	85 f6                	test   esi,esi
+   140001793:	0f 8e 17 01 00 00    	jle    1400018b0 <mark_section_writable+0x130>
+   140001799:	48 8b 05 08 59 00 00 	mov    rax,QWORD PTR [rip+0x5908]        # 1400070a8 <the_secs>
+   1400017a0:	45 31 c9             	xor    r9d,r9d
+   1400017a3:	48 83 c0 18          	add    rax,0x18
+   1400017a7:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+   1400017ae:	00 00 
+   1400017b0:	4c 8b 00             	mov    r8,QWORD PTR [rax]
+   1400017b3:	4c 39 c3             	cmp    rbx,r8
+   1400017b6:	72 13                	jb     1400017cb <mark_section_writable+0x4b>
+   1400017b8:	48 8b 50 08          	mov    rdx,QWORD PTR [rax+0x8]
+   1400017bc:	8b 52 08             	mov    edx,DWORD PTR [rdx+0x8]
+   1400017bf:	49 01 d0             	add    r8,rdx
+   1400017c2:	4c 39 c3             	cmp    rbx,r8
+   1400017c5:	0f 82 8a 00 00 00    	jb     140001855 <mark_section_writable+0xd5>
+   1400017cb:	41 83 c1 01          	add    r9d,0x1
+   1400017cf:	48 83 c0 28          	add    rax,0x28
+   1400017d3:	41 39 f1             	cmp    r9d,esi
+   1400017d6:	75 d8                	jne    1400017b0 <mark_section_writable+0x30>
+   1400017d8:	48 89 d9             	mov    rcx,rbx
+   1400017db:	e8 10 0a 00 00       	call   1400021f0 <__mingw_GetSectionForAddress>
+   1400017e0:	48 89 c7             	mov    rdi,rax
+   1400017e3:	48 85 c0             	test   rax,rax
+   1400017e6:	0f 84 e6 00 00 00    	je     1400018d2 <mark_section_writable+0x152>
+   1400017ec:	48 8b 05 b5 58 00 00 	mov    rax,QWORD PTR [rip+0x58b5]        # 1400070a8 <the_secs>
+   1400017f3:	48 8d 1c b6          	lea    rbx,[rsi+rsi*4]
+   1400017f7:	48 c1 e3 03          	shl    rbx,0x3
+   1400017fb:	48 01 d8             	add    rax,rbx
+   1400017fe:	48 89 78 20          	mov    QWORD PTR [rax+0x20],rdi
+   140001802:	c7 00 00 00 00 00    	mov    DWORD PTR [rax],0x0
+   140001808:	e8 23 0b 00 00       	call   140002330 <_GetPEImageBase>
+   14000180d:	8b 57 0c             	mov    edx,DWORD PTR [rdi+0xc]
+   140001810:	41 b8 30 00 00 00    	mov    r8d,0x30
+   140001816:	48 8d 0c 10          	lea    rcx,[rax+rdx*1]
+   14000181a:	48 8b 05 87 58 00 00 	mov    rax,QWORD PTR [rip+0x5887]        # 1400070a8 <the_secs>
+   140001821:	48 8d 54 24 20       	lea    rdx,[rsp+0x20]
+   140001826:	48 89 4c 18 18       	mov    QWORD PTR [rax+rbx*1+0x18],rcx
+   14000182b:	ff 15 a7 6a 00 00    	call   QWORD PTR [rip+0x6aa7]        # 1400082d8 <__imp_VirtualQuery>
+   140001831:	48 85 c0             	test   rax,rax
+   140001834:	0f 84 7d 00 00 00    	je     1400018b7 <mark_section_writable+0x137>
+   14000183a:	8b 44 24 44          	mov    eax,DWORD PTR [rsp+0x44]
+   14000183e:	8d 50 fc             	lea    edx,[rax-0x4]
+   140001841:	83 e2 fb             	and    edx,0xfffffffb
+   140001844:	74 08                	je     14000184e <mark_section_writable+0xce>
+   140001846:	8d 50 c0             	lea    edx,[rax-0x40]
+   140001849:	83 e2 bf             	and    edx,0xffffffbf
+   14000184c:	75 12                	jne    140001860 <mark_section_writable+0xe0>
+   14000184e:	83 05 4f 58 00 00 01 	add    DWORD PTR [rip+0x584f],0x1        # 1400070a4 <maxSections>
+   140001855:	48 83 c4 50          	add    rsp,0x50
+   140001859:	5b                   	pop    rbx
+   14000185a:	5e                   	pop    rsi
+   14000185b:	5f                   	pop    rdi
+   14000185c:	c3                   	ret
+   14000185d:	0f 1f 00             	nop    DWORD PTR [rax]
+   140001860:	83 f8 02             	cmp    eax,0x2
+   140001863:	48 8b 4c 24 20       	mov    rcx,QWORD PTR [rsp+0x20]
+   140001868:	48 8b 54 24 38       	mov    rdx,QWORD PTR [rsp+0x38]
+   14000186d:	41 b8 40 00 00 00    	mov    r8d,0x40
+   140001873:	b8 04 00 00 00       	mov    eax,0x4
+   140001878:	44 0f 44 c0          	cmove  r8d,eax
+   14000187c:	48 03 1d 25 58 00 00 	add    rbx,QWORD PTR [rip+0x5825]        # 1400070a8 <the_secs>
+   140001883:	48 89 4b 08          	mov    QWORD PTR [rbx+0x8],rcx
+   140001887:	49 89 d9             	mov    r9,rbx
+   14000188a:	48 89 53 10          	mov    QWORD PTR [rbx+0x10],rdx
+   14000188e:	ff 15 3c 6a 00 00    	call   QWORD PTR [rip+0x6a3c]        # 1400082d0 <__imp_VirtualProtect>
+   140001894:	85 c0                	test   eax,eax
+   140001896:	75 b6                	jne    14000184e <mark_section_writable+0xce>
+   140001898:	ff 15 02 6a 00 00    	call   QWORD PTR [rip+0x6a02]        # 1400082a0 <__imp_GetLastError>
+   14000189e:	48 8d 0d 93 29 00 00 	lea    rcx,[rip+0x2993]        # 140004238 <.rdata+0x78>
+   1400018a5:	89 c2                	mov    edx,eax
+   1400018a7:	e8 64 fe ff ff       	call   140001710 <__report_error>
+   1400018ac:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+   1400018b0:	31 f6                	xor    esi,esi
+   1400018b2:	e9 21 ff ff ff       	jmp    1400017d8 <mark_section_writable+0x58>
+   1400018b7:	48 8b 05 ea 57 00 00 	mov    rax,QWORD PTR [rip+0x57ea]        # 1400070a8 <the_secs>
+   1400018be:	8b 57 08             	mov    edx,DWORD PTR [rdi+0x8]
+   1400018c1:	48 8d 0d 38 29 00 00 	lea    rcx,[rip+0x2938]        # 140004200 <.rdata+0x40>
+   1400018c8:	4c 8b 44 18 18       	mov    r8,QWORD PTR [rax+rbx*1+0x18]
+   1400018cd:	e8 3e fe ff ff       	call   140001710 <__report_error>
+   1400018d2:	48 89 da             	mov    rdx,rbx
+   1400018d5:	48 8d 0d 04 29 00 00 	lea    rcx,[rip+0x2904]        # 1400041e0 <.rdata+0x20>
+   1400018dc:	e8 2f fe ff ff       	call   140001710 <__report_error>
+   1400018e1:	90                   	nop
+   1400018e2:	66 66 2e 0f 1f 84 00 	data16 cs nop WORD PTR [rax+rax*1+0x0]
+   1400018e9:	00 00 00 00 
+   1400018ed:	0f 1f 00             	nop    DWORD PTR [rax]
+
+00000001400018f0 <_pei386_runtime_relocator>:
+   1400018f0:	55                   	push   rbp
+   1400018f1:	41 57                	push   r15
+   1400018f3:	41 56                	push   r14
+   1400018f5:	41 55                	push   r13
+   1400018f7:	41 54                	push   r12
+   1400018f9:	57                   	push   rdi
+   1400018fa:	56                   	push   rsi
+   1400018fb:	53                   	push   rbx
+   1400018fc:	48 83 ec 48          	sub    rsp,0x48
+   140001900:	48 8d 6c 24 40       	lea    rbp,[rsp+0x40]
+   140001905:	44 8b 25 94 57 00 00 	mov    r12d,DWORD PTR [rip+0x5794]        # 1400070a0 <was_init.0>
+   14000190c:	45 85 e4             	test   r12d,r12d
+   14000190f:	74 17                	je     140001928 <_pei386_runtime_relocator+0x38>
+   140001911:	48 8d 65 08          	lea    rsp,[rbp+0x8]
+   140001915:	5b                   	pop    rbx
+   140001916:	5e                   	pop    rsi
+   140001917:	5f                   	pop    rdi
+   140001918:	41 5c                	pop    r12
+   14000191a:	41 5d                	pop    r13
+   14000191c:	41 5e                	pop    r14
+   14000191e:	41 5f                	pop    r15
+   140001920:	5d                   	pop    rbp
+   140001921:	c3                   	ret
+   140001922:	66 0f 1f 44 00 00    	nop    WORD PTR [rax+rax*1+0x0]
+   140001928:	c7 05 6e 57 00 00 01 	mov    DWORD PTR [rip+0x576e],0x1        # 1400070a0 <was_init.0>
+   14000192f:	00 00 00 
+   140001932:	e8 39 09 00 00       	call   140002270 <__mingw_GetSectionCount>
+   140001937:	48 98                	cdqe
+   140001939:	48 8d 04 80          	lea    rax,[rax+rax*4]
+   14000193d:	48 8d 04 c5 0f 00 00 	lea    rax,[rax*8+0xf]
+   140001944:	00 
+   140001945:	48 83 e0 f0          	and    rax,0xfffffffffffffff0
+   140001949:	e8 82 0b 00 00       	call   1400024d0 <___chkstk_ms>
+   14000194e:	4c 8b 2d 5b 2a 00 00 	mov    r13,QWORD PTR [rip+0x2a5b]        # 1400043b0 <.refptr.__RUNTIME_PSEUDO_RELOC_LIST_END__>
+   140001955:	48 8b 1d 64 2a 00 00 	mov    rbx,QWORD PTR [rip+0x2a64]        # 1400043c0 <.refptr.__RUNTIME_PSEUDO_RELOC_LIST__>
+   14000195c:	c7 05 3e 57 00 00 00 	mov    DWORD PTR [rip+0x573e],0x0        # 1400070a4 <maxSections>
+   140001963:	00 00 00 
+   140001966:	48 29 c4             	sub    rsp,rax
+   140001969:	48 8d 44 24 30       	lea    rax,[rsp+0x30]
+   14000196e:	48 89 05 33 57 00 00 	mov    QWORD PTR [rip+0x5733],rax        # 1400070a8 <the_secs>
+   140001975:	4c 89 e8             	mov    rax,r13
+   140001978:	48 29 d8             	sub    rax,rbx
+   14000197b:	48 83 f8 07          	cmp    rax,0x7
+   14000197f:	7e 90                	jle    140001911 <_pei386_runtime_relocator+0x21>
+   140001981:	8b 13                	mov    edx,DWORD PTR [rbx]
+   140001983:	48 83 f8 0b          	cmp    rax,0xb
+   140001987:	0f 8f 03 01 00 00    	jg     140001a90 <_pei386_runtime_relocator+0x1a0>
+   14000198d:	8b 03                	mov    eax,DWORD PTR [rbx]
+   14000198f:	85 c0                	test   eax,eax
+   140001991:	0f 85 69 02 00 00    	jne    140001c00 <_pei386_runtime_relocator+0x310>
+   140001997:	8b 43 04             	mov    eax,DWORD PTR [rbx+0x4]
+   14000199a:	85 c0                	test   eax,eax
+   14000199c:	0f 85 5e 02 00 00    	jne    140001c00 <_pei386_runtime_relocator+0x310>
+   1400019a2:	8b 53 08             	mov    edx,DWORD PTR [rbx+0x8]
+   1400019a5:	83 fa 01             	cmp    edx,0x1
+   1400019a8:	0f 85 92 02 00 00    	jne    140001c40 <_pei386_runtime_relocator+0x350>
+   1400019ae:	48 83 c3 0c          	add    rbx,0xc
+   1400019b2:	4c 39 eb             	cmp    rbx,r13
+   1400019b5:	0f 83 56 ff ff ff    	jae    140001911 <_pei386_runtime_relocator+0x21>
+   1400019bb:	4c 8b 35 de 29 00 00 	mov    r14,QWORD PTR [rip+0x29de]        # 1400043a0 <.refptr.__ImageBase>
+   1400019c2:	41 bf ff ff ff ff    	mov    r15d,0xffffffff
+   1400019c8:	eb 65                	jmp    140001a2f <_pei386_runtime_relocator+0x13f>
+   1400019ca:	66 0f 1f 44 00 00    	nop    WORD PTR [rax+rax*1+0x0]
+   1400019d0:	83 f9 08             	cmp    ecx,0x8
+   1400019d3:	0f 84 d7 00 00 00    	je     140001ab0 <_pei386_runtime_relocator+0x1c0>
+   1400019d9:	83 f9 10             	cmp    ecx,0x10
+   1400019dc:	0f 85 50 02 00 00    	jne    140001c32 <_pei386_runtime_relocator+0x342>
+   1400019e2:	0f b7 37             	movzx  esi,WORD PTR [rdi]
+   1400019e5:	81 e2 c0 00 00 00    	and    edx,0xc0
+   1400019eb:	66 85 f6             	test   si,si
+   1400019ee:	0f 89 cc 01 00 00    	jns    140001bc0 <_pei386_runtime_relocator+0x2d0>
+   1400019f4:	48 81 ce 00 00 ff ff 	or     rsi,0xffffffffffff0000
+   1400019fb:	48 29 c6             	sub    rsi,rax
+   1400019fe:	4c 01 ce             	add    rsi,r9
+   140001a01:	85 d2                	test   edx,edx
+   140001a03:	75 12                	jne    140001a17 <_pei386_runtime_relocator+0x127>
+   140001a05:	48 81 fe 00 80 ff ff 	cmp    rsi,0xffffffffffff8000
+   140001a0c:	7c 65                	jl     140001a73 <_pei386_runtime_relocator+0x183>
+   140001a0e:	48 81 fe ff ff 00 00 	cmp    rsi,0xffff
+   140001a15:	7f 5c                	jg     140001a73 <_pei386_runtime_relocator+0x183>
+   140001a17:	48 89 f9             	mov    rcx,rdi
+   140001a1a:	e8 61 fd ff ff       	call   140001780 <mark_section_writable>
+   140001a1f:	66 89 37             	mov    WORD PTR [rdi],si
+   140001a22:	48 83 c3 0c          	add    rbx,0xc
+   140001a26:	4c 39 eb             	cmp    rbx,r13
+   140001a29:	0f 83 d1 00 00 00    	jae    140001b00 <_pei386_runtime_relocator+0x210>
+   140001a2f:	8b 03                	mov    eax,DWORD PTR [rbx]
+   140001a31:	8b 53 08             	mov    edx,DWORD PTR [rbx+0x8]
+   140001a34:	8b 7b 04             	mov    edi,DWORD PTR [rbx+0x4]
+   140001a37:	4c 01 f0             	add    rax,r14
+   140001a3a:	0f b6 ca             	movzx  ecx,dl
+   140001a3d:	4c 8b 08             	mov    r9,QWORD PTR [rax]
+   140001a40:	4c 01 f7             	add    rdi,r14
+   140001a43:	83 f9 20             	cmp    ecx,0x20
+   140001a46:	0f 84 0c 01 00 00    	je     140001b58 <_pei386_runtime_relocator+0x268>
+   140001a4c:	76 82                	jbe    1400019d0 <_pei386_runtime_relocator+0xe0>
+   140001a4e:	83 f9 40             	cmp    ecx,0x40
+   140001a51:	0f 85 db 01 00 00    	jne    140001c32 <_pei386_runtime_relocator+0x342>
+   140001a57:	48 8b 37             	mov    rsi,QWORD PTR [rdi]
+   140001a5a:	89 d1                	mov    ecx,edx
+   140001a5c:	48 29 c6             	sub    rsi,rax
+   140001a5f:	4c 01 ce             	add    rsi,r9
+   140001a62:	81 e1 c0 00 00 00    	and    ecx,0xc0
+   140001a68:	0f 85 42 01 00 00    	jne    140001bb0 <_pei386_runtime_relocator+0x2c0>
+   140001a6e:	48 85 f6             	test   rsi,rsi
+   140001a71:	78 af                	js     140001a22 <_pei386_runtime_relocator+0x132>
+   140001a73:	48 89 74 24 20       	mov    QWORD PTR [rsp+0x20],rsi
+   140001a78:	89 ca                	mov    edx,ecx
+   140001a7a:	49 89 f8             	mov    r8,rdi
+   140001a7d:	48 8d 0d 44 28 00 00 	lea    rcx,[rip+0x2844]        # 1400042c8 <.rdata+0x108>
+   140001a84:	e8 87 fc ff ff       	call   140001710 <__report_error>
+   140001a89:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+   140001a90:	85 d2                	test   edx,edx
+   140001a92:	0f 85 68 01 00 00    	jne    140001c00 <_pei386_runtime_relocator+0x310>
+   140001a98:	8b 43 04             	mov    eax,DWORD PTR [rbx+0x4]
+   140001a9b:	89 c2                	mov    edx,eax
+   140001a9d:	0b 53 08             	or     edx,DWORD PTR [rbx+0x8]
+   140001aa0:	0f 85 f4 fe ff ff    	jne    14000199a <_pei386_runtime_relocator+0xaa>
+   140001aa6:	48 83 c3 0c          	add    rbx,0xc
+   140001aaa:	e9 de fe ff ff       	jmp    14000198d <_pei386_runtime_relocator+0x9d>
+   140001aaf:	90                   	nop
+   140001ab0:	0f b6 37             	movzx  esi,BYTE PTR [rdi]
+   140001ab3:	81 e2 c0 00 00 00    	and    edx,0xc0
+   140001ab9:	40 84 f6             	test   sil,sil
+   140001abc:	0f 89 26 01 00 00    	jns    140001be8 <_pei386_runtime_relocator+0x2f8>
+   140001ac2:	48 81 ce 00 ff ff ff 	or     rsi,0xffffffffffffff00
+   140001ac9:	48 29 c6             	sub    rsi,rax
+   140001acc:	4c 01 ce             	add    rsi,r9
+   140001acf:	85 d2                	test   edx,edx
+   140001ad1:	75 0f                	jne    140001ae2 <_pei386_runtime_relocator+0x1f2>
+   140001ad3:	48 81 fe ff 00 00 00 	cmp    rsi,0xff
+   140001ada:	7f 97                	jg     140001a73 <_pei386_runtime_relocator+0x183>
+   140001adc:	48 83 fe 80          	cmp    rsi,0xffffffffffffff80
+   140001ae0:	7c 91                	jl     140001a73 <_pei386_runtime_relocator+0x183>
+   140001ae2:	48 89 f9             	mov    rcx,rdi
+   140001ae5:	48 83 c3 0c          	add    rbx,0xc
+   140001ae9:	e8 92 fc ff ff       	call   140001780 <mark_section_writable>
+   140001aee:	40 88 37             	mov    BYTE PTR [rdi],sil
+   140001af1:	4c 39 eb             	cmp    rbx,r13
+   140001af4:	0f 82 35 ff ff ff    	jb     140001a2f <_pei386_runtime_relocator+0x13f>
+   140001afa:	66 0f 1f 44 00 00    	nop    WORD PTR [rax+rax*1+0x0]
+   140001b00:	8b 15 9e 55 00 00    	mov    edx,DWORD PTR [rip+0x559e]        # 1400070a4 <maxSections>
+   140001b06:	85 d2                	test   edx,edx
+   140001b08:	0f 8e 03 fe ff ff    	jle    140001911 <_pei386_runtime_relocator+0x21>
+   140001b0e:	48 8b 35 bb 67 00 00 	mov    rsi,QWORD PTR [rip+0x67bb]        # 1400082d0 <__imp_VirtualProtect>
+   140001b15:	31 db                	xor    ebx,ebx
+   140001b17:	48 8d 7d fc          	lea    rdi,[rbp-0x4]
+   140001b1b:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+   140001b20:	48 8b 05 81 55 00 00 	mov    rax,QWORD PTR [rip+0x5581]        # 1400070a8 <the_secs>
+   140001b27:	48 01 d8             	add    rax,rbx
+   140001b2a:	44 8b 00             	mov    r8d,DWORD PTR [rax]
+   140001b2d:	45 85 c0             	test   r8d,r8d
+   140001b30:	74 0d                	je     140001b3f <_pei386_runtime_relocator+0x24f>
+   140001b32:	48 8b 50 10          	mov    rdx,QWORD PTR [rax+0x10]
+   140001b36:	48 8b 48 08          	mov    rcx,QWORD PTR [rax+0x8]
+   140001b3a:	49 89 f9             	mov    r9,rdi
+   140001b3d:	ff d6                	call   rsi
+   140001b3f:	41 83 c4 01          	add    r12d,0x1
+   140001b43:	48 83 c3 28          	add    rbx,0x28
+   140001b47:	44 3b 25 56 55 00 00 	cmp    r12d,DWORD PTR [rip+0x5556]        # 1400070a4 <maxSections>
+   140001b4e:	7c d0                	jl     140001b20 <_pei386_runtime_relocator+0x230>
+   140001b50:	e9 bc fd ff ff       	jmp    140001911 <_pei386_runtime_relocator+0x21>
+   140001b55:	0f 1f 00             	nop    DWORD PTR [rax]
+   140001b58:	8b 37                	mov    esi,DWORD PTR [rdi]
+   140001b5a:	81 e2 c0 00 00 00    	and    edx,0xc0
+   140001b60:	85 f6                	test   esi,esi
+   140001b62:	79 74                	jns    140001bd8 <_pei386_runtime_relocator+0x2e8>
+   140001b64:	49 bb 00 00 00 00 ff 	movabs r11,0xffffffff00000000
+   140001b6b:	ff ff ff 
+   140001b6e:	4c 09 de             	or     rsi,r11
+   140001b71:	48 29 c6             	sub    rsi,rax
+   140001b74:	4c 01 ce             	add    rsi,r9
+   140001b77:	85 d2                	test   edx,edx
+   140001b79:	75 1c                	jne    140001b97 <_pei386_runtime_relocator+0x2a7>
+   140001b7b:	4c 39 fe             	cmp    rsi,r15
+   140001b7e:	0f 8f ef fe ff ff    	jg     140001a73 <_pei386_runtime_relocator+0x183>
+   140001b84:	48 b8 ff ff ff 7f ff 	movabs rax,0xffffffff7fffffff
+   140001b8b:	ff ff ff 
+   140001b8e:	48 39 c6             	cmp    rsi,rax
+   140001b91:	0f 8e dc fe ff ff    	jle    140001a73 <_pei386_runtime_relocator+0x183>
+   140001b97:	48 89 f9             	mov    rcx,rdi
+   140001b9a:	e8 e1 fb ff ff       	call   140001780 <mark_section_writable>
+   140001b9f:	89 37                	mov    DWORD PTR [rdi],esi
+   140001ba1:	e9 7c fe ff ff       	jmp    140001a22 <_pei386_runtime_relocator+0x132>
+   140001ba6:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+   140001bad:	00 00 00 
+   140001bb0:	48 89 f9             	mov    rcx,rdi
+   140001bb3:	e8 c8 fb ff ff       	call   140001780 <mark_section_writable>
+   140001bb8:	48 89 37             	mov    QWORD PTR [rdi],rsi
+   140001bbb:	e9 62 fe ff ff       	jmp    140001a22 <_pei386_runtime_relocator+0x132>
+   140001bc0:	48 29 c6             	sub    rsi,rax
+   140001bc3:	4c 01 ce             	add    rsi,r9
+   140001bc6:	85 d2                	test   edx,edx
+   140001bc8:	0f 84 37 fe ff ff    	je     140001a05 <_pei386_runtime_relocator+0x115>
+   140001bce:	e9 44 fe ff ff       	jmp    140001a17 <_pei386_runtime_relocator+0x127>
+   140001bd3:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+   140001bd8:	48 29 c6             	sub    rsi,rax
+   140001bdb:	4c 01 ce             	add    rsi,r9
+   140001bde:	85 d2                	test   edx,edx
+   140001be0:	74 99                	je     140001b7b <_pei386_runtime_relocator+0x28b>
+   140001be2:	eb b3                	jmp    140001b97 <_pei386_runtime_relocator+0x2a7>
+   140001be4:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+   140001be8:	48 29 c6             	sub    rsi,rax
+   140001beb:	4c 01 ce             	add    rsi,r9
+   140001bee:	85 d2                	test   edx,edx
+   140001bf0:	0f 84 dd fe ff ff    	je     140001ad3 <_pei386_runtime_relocator+0x1e3>
+   140001bf6:	e9 e7 fe ff ff       	jmp    140001ae2 <_pei386_runtime_relocator+0x1f2>
+   140001bfb:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+   140001c00:	4c 39 eb             	cmp    rbx,r13
+   140001c03:	0f 83 08 fd ff ff    	jae    140001911 <_pei386_runtime_relocator+0x21>
+   140001c09:	4c 8b 35 90 27 00 00 	mov    r14,QWORD PTR [rip+0x2790]        # 1400043a0 <.refptr.__ImageBase>
+   140001c10:	8b 73 04             	mov    esi,DWORD PTR [rbx+0x4]
+   140001c13:	8b 3b                	mov    edi,DWORD PTR [rbx]
+   140001c15:	48 83 c3 08          	add    rbx,0x8
+   140001c19:	4c 01 f6             	add    rsi,r14
+   140001c1c:	03 3e                	add    edi,DWORD PTR [rsi]
+   140001c1e:	48 89 f1             	mov    rcx,rsi
+   140001c21:	e8 5a fb ff ff       	call   140001780 <mark_section_writable>
+   140001c26:	89 3e                	mov    DWORD PTR [rsi],edi
+   140001c28:	4c 39 eb             	cmp    rbx,r13
+   140001c2b:	72 e3                	jb     140001c10 <_pei386_runtime_relocator+0x320>
+   140001c2d:	e9 ce fe ff ff       	jmp    140001b00 <_pei386_runtime_relocator+0x210>
+   140001c32:	89 ca                	mov    edx,ecx
+   140001c34:	48 8d 0d 5d 26 00 00 	lea    rcx,[rip+0x265d]        # 140004298 <.rdata+0xd8>
+   140001c3b:	e8 d0 fa ff ff       	call   140001710 <__report_error>
+   140001c40:	48 8d 0d 19 26 00 00 	lea    rcx,[rip+0x2619]        # 140004260 <.rdata+0xa0>
+   140001c47:	e8 c4 fa ff ff       	call   140001710 <__report_error>
+   140001c4c:	90                   	nop
+   140001c4d:	90                   	nop
+   140001c4e:	90                   	nop
+   140001c4f:	90                   	nop
+
+0000000140001c50 <__mingw_raise_matherr>:
+   140001c50:	48 83 ec 58          	sub    rsp,0x58
+   140001c54:	48 8b 05 55 54 00 00 	mov    rax,QWORD PTR [rip+0x5455]        # 1400070b0 <stUserMathErr>
+   140001c5b:	66 0f 14 d3          	unpcklpd xmm2,xmm3
+   140001c5f:	48 85 c0             	test   rax,rax
+   140001c62:	74 25                	je     140001c89 <__mingw_raise_matherr+0x39>
+   140001c64:	f2 0f 10 84 24 80 00 	movsd  xmm0,QWORD PTR [rsp+0x80]
+   140001c6b:	00 00 
+   140001c6d:	89 4c 24 20          	mov    DWORD PTR [rsp+0x20],ecx
+   140001c71:	48 8d 4c 24 20       	lea    rcx,[rsp+0x20]
+   140001c76:	48 89 54 24 28       	mov    QWORD PTR [rsp+0x28],rdx
+   140001c7b:	0f 11 54 24 30       	movups XMMWORD PTR [rsp+0x30],xmm2
+   140001c80:	f2 0f 11 44 24 40    	movsd  QWORD PTR [rsp+0x40],xmm0
+   140001c86:	ff d0                	call   rax
+   140001c88:	90                   	nop
+   140001c89:	48 83 c4 58          	add    rsp,0x58
+   140001c8d:	c3                   	ret
+   140001c8e:	66 90                	xchg   ax,ax
+
+0000000140001c90 <__mingw_setusermatherr>:
+   140001c90:	48 89 0d 19 54 00 00 	mov    QWORD PTR [rip+0x5419],rcx        # 1400070b0 <stUserMathErr>
+   140001c97:	e9 f4 0b 00 00       	jmp    140002890 <__setusermatherr>
+   140001c9c:	90                   	nop
+   140001c9d:	90                   	nop
+   140001c9e:	90                   	nop
+   140001c9f:	90                   	nop
+
+0000000140001ca0 <_gnu_exception_handler>:
+   140001ca0:	53                   	push   rbx
+   140001ca1:	48 83 ec 20          	sub    rsp,0x20
+   140001ca5:	48 8b 11             	mov    rdx,QWORD PTR [rcx]
+   140001ca8:	8b 02                	mov    eax,DWORD PTR [rdx]
+   140001caa:	48 89 cb             	mov    rbx,rcx
+   140001cad:	89 c1                	mov    ecx,eax
+   140001caf:	81 e1 ff ff ff 20    	and    ecx,0x20ffffff
+   140001cb5:	81 f9 43 43 47 20    	cmp    ecx,0x20474343
+   140001cbb:	0f 84 bf 00 00 00    	je     140001d80 <_gnu_exception_handler+0xe0>
+   140001cc1:	3d 96 00 00 c0       	cmp    eax,0xc0000096
+   140001cc6:	77 47                	ja     140001d0f <_gnu_exception_handler+0x6f>
+   140001cc8:	3d 8b 00 00 c0       	cmp    eax,0xc000008b
+   140001ccd:	76 61                	jbe    140001d30 <_gnu_exception_handler+0x90>
+   140001ccf:	05 73 ff ff 3f       	add    eax,0x3fffff73
+   140001cd4:	83 f8 09             	cmp    eax,0x9
+   140001cd7:	0f 87 93 00 00 00    	ja     140001d70 <_gnu_exception_handler+0xd0>
+   140001cdd:	48 8d 15 3c 26 00 00 	lea    rdx,[rip+0x263c]        # 140004320 <.rdata>
+   140001ce4:	48 63 04 82          	movsxd rax,DWORD PTR [rdx+rax*4]
+   140001ce8:	48 01 d0             	add    rax,rdx
+   140001ceb:	ff e0                	jmp    rax
+   140001ced:	0f 1f 00             	nop    DWORD PTR [rax]
+   140001cf0:	31 d2                	xor    edx,edx
+   140001cf2:	b9 08 00 00 00       	mov    ecx,0x8
+   140001cf7:	e8 74 0b 00 00       	call   140002870 <signal>
+   140001cfc:	48 83 f8 01          	cmp    rax,0x1
+   140001d00:	0f 84 3e 01 00 00    	je     140001e44 <_gnu_exception_handler+0x1a4>
+   140001d06:	48 85 c0             	test   rax,rax
+   140001d09:	0f 85 01 01 00 00    	jne    140001e10 <_gnu_exception_handler+0x170>
+   140001d0f:	48 8b 05 ba 53 00 00 	mov    rax,QWORD PTR [rip+0x53ba]        # 1400070d0 <__mingw_oldexcpt_handler>
+   140001d16:	48 85 c0             	test   rax,rax
+   140001d19:	74 75                	je     140001d90 <_gnu_exception_handler+0xf0>
+   140001d1b:	48 89 d9             	mov    rcx,rbx
+   140001d1e:	48 83 c4 20          	add    rsp,0x20
+   140001d22:	5b                   	pop    rbx
+   140001d23:	48 ff e0             	rex.W jmp rax
+   140001d26:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+   140001d2d:	00 00 00 
+   140001d30:	3d 05 00 00 c0       	cmp    eax,0xc0000005
+   140001d35:	0f 84 a5 00 00 00    	je     140001de0 <_gnu_exception_handler+0x140>
+   140001d3b:	76 63                	jbe    140001da0 <_gnu_exception_handler+0x100>
+   140001d3d:	3d 08 00 00 c0       	cmp    eax,0xc0000008
+   140001d42:	74 2c                	je     140001d70 <_gnu_exception_handler+0xd0>
+   140001d44:	3d 1d 00 00 c0       	cmp    eax,0xc000001d
+   140001d49:	75 c4                	jne    140001d0f <_gnu_exception_handler+0x6f>
+   140001d4b:	31 d2                	xor    edx,edx
+   140001d4d:	b9 04 00 00 00       	mov    ecx,0x4
+   140001d52:	e8 19 0b 00 00       	call   140002870 <signal>
+   140001d57:	48 83 f8 01          	cmp    rax,0x1
+   140001d5b:	0f 84 cf 00 00 00    	je     140001e30 <_gnu_exception_handler+0x190>
+   140001d61:	48 85 c0             	test   rax,rax
+   140001d64:	74 a9                	je     140001d0f <_gnu_exception_handler+0x6f>
+   140001d66:	b9 04 00 00 00       	mov    ecx,0x4
+   140001d6b:	ff d0                	call   rax
+   140001d6d:	0f 1f 00             	nop    DWORD PTR [rax]
+   140001d70:	b8 ff ff ff ff       	mov    eax,0xffffffff
+   140001d75:	eb 1b                	jmp    140001d92 <_gnu_exception_handler+0xf2>
+   140001d77:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+   140001d7e:	00 00 
+   140001d80:	f6 42 04 01          	test   BYTE PTR [rdx+0x4],0x1
+   140001d84:	0f 85 37 ff ff ff    	jne    140001cc1 <_gnu_exception_handler+0x21>
+   140001d8a:	eb e4                	jmp    140001d70 <_gnu_exception_handler+0xd0>
+   140001d8c:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+   140001d90:	31 c0                	xor    eax,eax
+   140001d92:	48 83 c4 20          	add    rsp,0x20
+   140001d96:	5b                   	pop    rbx
+   140001d97:	c3                   	ret
+   140001d98:	0f 1f 84 00 00 00 00 	nop    DWORD PTR [rax+rax*1+0x0]
+   140001d9f:	00 
+   140001da0:	3d 02 00 00 80       	cmp    eax,0x80000002
+   140001da5:	0f 85 64 ff ff ff    	jne    140001d0f <_gnu_exception_handler+0x6f>
+   140001dab:	eb c3                	jmp    140001d70 <_gnu_exception_handler+0xd0>
+   140001dad:	0f 1f 00             	nop    DWORD PTR [rax]
+   140001db0:	31 d2                	xor    edx,edx
+   140001db2:	b9 08 00 00 00       	mov    ecx,0x8
+   140001db7:	e8 b4 0a 00 00       	call   140002870 <signal>
+   140001dbc:	48 83 f8 01          	cmp    rax,0x1
+   140001dc0:	0f 85 40 ff ff ff    	jne    140001d06 <_gnu_exception_handler+0x66>
+   140001dc6:	ba 01 00 00 00       	mov    edx,0x1
+   140001dcb:	b9 08 00 00 00       	mov    ecx,0x8
+   140001dd0:	e8 9b 0a 00 00       	call   140002870 <signal>
+   140001dd5:	eb 99                	jmp    140001d70 <_gnu_exception_handler+0xd0>
+   140001dd7:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+   140001dde:	00 00 
+   140001de0:	31 d2                	xor    edx,edx
+   140001de2:	b9 0b 00 00 00       	mov    ecx,0xb
+   140001de7:	e8 84 0a 00 00       	call   140002870 <signal>
+   140001dec:	48 83 f8 01          	cmp    rax,0x1
+   140001df0:	74 2a                	je     140001e1c <_gnu_exception_handler+0x17c>
+   140001df2:	48 85 c0             	test   rax,rax
+   140001df5:	0f 84 14 ff ff ff    	je     140001d0f <_gnu_exception_handler+0x6f>
+   140001dfb:	b9 0b 00 00 00       	mov    ecx,0xb
+   140001e00:	ff d0                	call   rax
+   140001e02:	e9 69 ff ff ff       	jmp    140001d70 <_gnu_exception_handler+0xd0>
+   140001e07:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+   140001e0e:	00 00 
+   140001e10:	b9 08 00 00 00       	mov    ecx,0x8
+   140001e15:	ff d0                	call   rax
+   140001e17:	e9 54 ff ff ff       	jmp    140001d70 <_gnu_exception_handler+0xd0>
+   140001e1c:	ba 01 00 00 00       	mov    edx,0x1
+   140001e21:	b9 0b 00 00 00       	mov    ecx,0xb
+   140001e26:	e8 45 0a 00 00       	call   140002870 <signal>
+   140001e2b:	e9 40 ff ff ff       	jmp    140001d70 <_gnu_exception_handler+0xd0>
+   140001e30:	ba 01 00 00 00       	mov    edx,0x1
+   140001e35:	b9 04 00 00 00       	mov    ecx,0x4
+   140001e3a:	e8 31 0a 00 00       	call   140002870 <signal>
+   140001e3f:	e9 2c ff ff ff       	jmp    140001d70 <_gnu_exception_handler+0xd0>
+   140001e44:	ba 01 00 00 00       	mov    edx,0x1
+   140001e49:	b9 08 00 00 00       	mov    ecx,0x8
+   140001e4e:	e8 1d 0a 00 00       	call   140002870 <signal>
+   140001e53:	e8 a8 f8 ff ff       	call   140001700 <_fpreset>
+   140001e58:	e9 13 ff ff ff       	jmp    140001d70 <_gnu_exception_handler+0xd0>
+   140001e5d:	90                   	nop
+   140001e5e:	90                   	nop
+   140001e5f:	90                   	nop
+
+0000000140001e60 <__mingwthr_run_key_dtors.part.0>:
+   140001e60:	41 54                	push   r12
+   140001e62:	55                   	push   rbp
+   140001e63:	57                   	push   rdi
+   140001e64:	56                   	push   rsi
+   140001e65:	53                   	push   rbx
+   140001e66:	48 83 ec 20          	sub    rsp,0x20
+   140001e6a:	4c 8d 25 8f 52 00 00 	lea    r12,[rip+0x528f]        # 140007100 <__mingwthr_cs>
+   140001e71:	4c 89 e1             	mov    rcx,r12
+   140001e74:	ff 15 1e 64 00 00    	call   QWORD PTR [rip+0x641e]        # 140008298 <__imp_EnterCriticalSection>
+   140001e7a:	48 8b 1d 5f 52 00 00 	mov    rbx,QWORD PTR [rip+0x525f]        # 1400070e0 <key_dtor_list>
+   140001e81:	48 85 db             	test   rbx,rbx
+   140001e84:	74 36                	je     140001ebc <__mingwthr_run_key_dtors.part.0+0x5c>
+   140001e86:	48 8b 2d 3b 64 00 00 	mov    rbp,QWORD PTR [rip+0x643b]        # 1400082c8 <__imp_TlsGetValue>
+   140001e8d:	48 8b 3d 0c 64 00 00 	mov    rdi,QWORD PTR [rip+0x640c]        # 1400082a0 <__imp_GetLastError>
+   140001e94:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+   140001e98:	8b 0b                	mov    ecx,DWORD PTR [rbx]
+   140001e9a:	ff d5                	call   rbp
+   140001e9c:	48 89 c6             	mov    rsi,rax
+   140001e9f:	ff d7                	call   rdi
+   140001ea1:	48 85 f6             	test   rsi,rsi
+   140001ea4:	74 0d                	je     140001eb3 <__mingwthr_run_key_dtors.part.0+0x53>
+   140001ea6:	85 c0                	test   eax,eax
+   140001ea8:	75 09                	jne    140001eb3 <__mingwthr_run_key_dtors.part.0+0x53>
+   140001eaa:	48 8b 43 08          	mov    rax,QWORD PTR [rbx+0x8]
+   140001eae:	48 89 f1             	mov    rcx,rsi
+   140001eb1:	ff d0                	call   rax
+   140001eb3:	48 8b 5b 10          	mov    rbx,QWORD PTR [rbx+0x10]
+   140001eb7:	48 85 db             	test   rbx,rbx
+   140001eba:	75 dc                	jne    140001e98 <__mingwthr_run_key_dtors.part.0+0x38>
+   140001ebc:	4c 89 e1             	mov    rcx,r12
+   140001ebf:	48 83 c4 20          	add    rsp,0x20
+   140001ec3:	5b                   	pop    rbx
+   140001ec4:	5e                   	pop    rsi
+   140001ec5:	5f                   	pop    rdi
+   140001ec6:	5d                   	pop    rbp
+   140001ec7:	41 5c                	pop    r12
+   140001ec9:	48 ff 25 e0 63 00 00 	rex.W jmp QWORD PTR [rip+0x63e0]        # 1400082b0 <__imp_LeaveCriticalSection>
+
+0000000140001ed0 <___w64_mingwthr_add_key_dtor>:
+   140001ed0:	57                   	push   rdi
+   140001ed1:	56                   	push   rsi
+   140001ed2:	53                   	push   rbx
+   140001ed3:	48 83 ec 20          	sub    rsp,0x20
+   140001ed7:	8b 05 0b 52 00 00    	mov    eax,DWORD PTR [rip+0x520b]        # 1400070e8 <__mingwthr_cs_init>
+   140001edd:	89 cf                	mov    edi,ecx
+   140001edf:	48 89 d6             	mov    rsi,rdx
+   140001ee2:	85 c0                	test   eax,eax
+   140001ee4:	75 0a                	jne    140001ef0 <___w64_mingwthr_add_key_dtor+0x20>
+   140001ee6:	31 c0                	xor    eax,eax
+   140001ee8:	48 83 c4 20          	add    rsp,0x20
+   140001eec:	5b                   	pop    rbx
+   140001eed:	5e                   	pop    rsi
+   140001eee:	5f                   	pop    rdi
+   140001eef:	c3                   	ret
+   140001ef0:	ba 18 00 00 00       	mov    edx,0x18
+   140001ef5:	b9 01 00 00 00       	mov    ecx,0x1
+   140001efa:	e8 a9 09 00 00       	call   1400028a8 <calloc>
+   140001eff:	48 89 c3             	mov    rbx,rax
+   140001f02:	48 85 c0             	test   rax,rax
+   140001f05:	74 33                	je     140001f3a <___w64_mingwthr_add_key_dtor+0x6a>
+   140001f07:	48 89 70 08          	mov    QWORD PTR [rax+0x8],rsi
+   140001f0b:	48 8d 35 ee 51 00 00 	lea    rsi,[rip+0x51ee]        # 140007100 <__mingwthr_cs>
+   140001f12:	89 38                	mov    DWORD PTR [rax],edi
+   140001f14:	48 89 f1             	mov    rcx,rsi
+   140001f17:	ff 15 7b 63 00 00    	call   QWORD PTR [rip+0x637b]        # 140008298 <__imp_EnterCriticalSection>
+   140001f1d:	48 8b 05 bc 51 00 00 	mov    rax,QWORD PTR [rip+0x51bc]        # 1400070e0 <key_dtor_list>
+   140001f24:	48 89 f1             	mov    rcx,rsi
+   140001f27:	48 89 1d b2 51 00 00 	mov    QWORD PTR [rip+0x51b2],rbx        # 1400070e0 <key_dtor_list>
+   140001f2e:	48 89 43 10          	mov    QWORD PTR [rbx+0x10],rax
+   140001f32:	ff 15 78 63 00 00    	call   QWORD PTR [rip+0x6378]        # 1400082b0 <__imp_LeaveCriticalSection>
+   140001f38:	eb ac                	jmp    140001ee6 <___w64_mingwthr_add_key_dtor+0x16>
+   140001f3a:	83 c8 ff             	or     eax,0xffffffff
+   140001f3d:	eb a9                	jmp    140001ee8 <___w64_mingwthr_add_key_dtor+0x18>
+   140001f3f:	90                   	nop
+
+0000000140001f40 <___w64_mingwthr_remove_key_dtor>:
+   140001f40:	56                   	push   rsi
+   140001f41:	53                   	push   rbx
+   140001f42:	48 83 ec 28          	sub    rsp,0x28
+   140001f46:	8b 05 9c 51 00 00    	mov    eax,DWORD PTR [rip+0x519c]        # 1400070e8 <__mingwthr_cs_init>
+   140001f4c:	89 cb                	mov    ebx,ecx
+   140001f4e:	85 c0                	test   eax,eax
+   140001f50:	75 0e                	jne    140001f60 <___w64_mingwthr_remove_key_dtor+0x20>
+   140001f52:	31 c0                	xor    eax,eax
+   140001f54:	48 83 c4 28          	add    rsp,0x28
+   140001f58:	5b                   	pop    rbx
+   140001f59:	5e                   	pop    rsi
+   140001f5a:	c3                   	ret
+   140001f5b:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+   140001f60:	48 8d 35 99 51 00 00 	lea    rsi,[rip+0x5199]        # 140007100 <__mingwthr_cs>
+   140001f67:	48 89 f1             	mov    rcx,rsi
+   140001f6a:	ff 15 28 63 00 00    	call   QWORD PTR [rip+0x6328]        # 140008298 <__imp_EnterCriticalSection>
+   140001f70:	48 8b 0d 69 51 00 00 	mov    rcx,QWORD PTR [rip+0x5169]        # 1400070e0 <key_dtor_list>
+   140001f77:	48 85 c9             	test   rcx,rcx
+   140001f7a:	74 27                	je     140001fa3 <___w64_mingwthr_remove_key_dtor+0x63>
+   140001f7c:	31 d2                	xor    edx,edx
+   140001f7e:	eb 0b                	jmp    140001f8b <___w64_mingwthr_remove_key_dtor+0x4b>
+   140001f80:	48 89 ca             	mov    rdx,rcx
+   140001f83:	48 85 c0             	test   rax,rax
+   140001f86:	74 1b                	je     140001fa3 <___w64_mingwthr_remove_key_dtor+0x63>
+   140001f88:	48 89 c1             	mov    rcx,rax
+   140001f8b:	8b 01                	mov    eax,DWORD PTR [rcx]
+   140001f8d:	39 d8                	cmp    eax,ebx
+   140001f8f:	48 8b 41 10          	mov    rax,QWORD PTR [rcx+0x10]
+   140001f93:	75 eb                	jne    140001f80 <___w64_mingwthr_remove_key_dtor+0x40>
+   140001f95:	48 85 d2             	test   rdx,rdx
+   140001f98:	74 1e                	je     140001fb8 <___w64_mingwthr_remove_key_dtor+0x78>
+   140001f9a:	48 89 42 10          	mov    QWORD PTR [rdx+0x10],rax
+   140001f9e:	e8 0d 09 00 00       	call   1400028b0 <free>
+   140001fa3:	48 89 f1             	mov    rcx,rsi
+   140001fa6:	ff 15 04 63 00 00    	call   QWORD PTR [rip+0x6304]        # 1400082b0 <__imp_LeaveCriticalSection>
+   140001fac:	31 c0                	xor    eax,eax
+   140001fae:	48 83 c4 28          	add    rsp,0x28
+   140001fb2:	5b                   	pop    rbx
+   140001fb3:	5e                   	pop    rsi
+   140001fb4:	c3                   	ret
+   140001fb5:	0f 1f 00             	nop    DWORD PTR [rax]
+   140001fb8:	48 89 05 21 51 00 00 	mov    QWORD PTR [rip+0x5121],rax        # 1400070e0 <key_dtor_list>
+   140001fbf:	eb dd                	jmp    140001f9e <___w64_mingwthr_remove_key_dtor+0x5e>
+   140001fc1:	66 66 2e 0f 1f 84 00 	data16 cs nop WORD PTR [rax+rax*1+0x0]
+   140001fc8:	00 00 00 00 
+   140001fcc:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+
+0000000140001fd0 <__mingw_TLScallback>:
+   140001fd0:	53                   	push   rbx
+   140001fd1:	48 83 ec 20          	sub    rsp,0x20
+   140001fd5:	83 fa 02             	cmp    edx,0x2
+   140001fd8:	0f 84 b2 00 00 00    	je     140002090 <__mingw_TLScallback+0xc0>
+   140001fde:	77 30                	ja     140002010 <__mingw_TLScallback+0x40>
+   140001fe0:	85 d2                	test   edx,edx
+   140001fe2:	74 4c                	je     140002030 <__mingw_TLScallback+0x60>
+   140001fe4:	8b 05 fe 50 00 00    	mov    eax,DWORD PTR [rip+0x50fe]        # 1400070e8 <__mingwthr_cs_init>
+   140001fea:	85 c0                	test   eax,eax
+   140001fec:	0f 84 be 00 00 00    	je     1400020b0 <__mingw_TLScallback+0xe0>
+   140001ff2:	c7 05 ec 50 00 00 01 	mov    DWORD PTR [rip+0x50ec],0x1        # 1400070e8 <__mingwthr_cs_init>
+   140001ff9:	00 00 00 
+   140001ffc:	b8 01 00 00 00       	mov    eax,0x1
+   140002001:	48 83 c4 20          	add    rsp,0x20
+   140002005:	5b                   	pop    rbx
+   140002006:	c3                   	ret
+   140002007:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+   14000200e:	00 00 
+   140002010:	83 fa 03             	cmp    edx,0x3
+   140002013:	75 e7                	jne    140001ffc <__mingw_TLScallback+0x2c>
+   140002015:	8b 05 cd 50 00 00    	mov    eax,DWORD PTR [rip+0x50cd]        # 1400070e8 <__mingwthr_cs_init>
+   14000201b:	85 c0                	test   eax,eax
+   14000201d:	74 dd                	je     140001ffc <__mingw_TLScallback+0x2c>
+   14000201f:	e8 3c fe ff ff       	call   140001e60 <__mingwthr_run_key_dtors.part.0>
+   140002024:	eb d6                	jmp    140001ffc <__mingw_TLScallback+0x2c>
+   140002026:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+   14000202d:	00 00 00 
+   140002030:	8b 05 b2 50 00 00    	mov    eax,DWORD PTR [rip+0x50b2]        # 1400070e8 <__mingwthr_cs_init>
+   140002036:	85 c0                	test   eax,eax
+   140002038:	75 66                	jne    1400020a0 <__mingw_TLScallback+0xd0>
+   14000203a:	8b 05 a8 50 00 00    	mov    eax,DWORD PTR [rip+0x50a8]        # 1400070e8 <__mingwthr_cs_init>
+   140002040:	83 f8 01             	cmp    eax,0x1
+   140002043:	75 b7                	jne    140001ffc <__mingw_TLScallback+0x2c>
+   140002045:	48 8b 1d 94 50 00 00 	mov    rbx,QWORD PTR [rip+0x5094]        # 1400070e0 <key_dtor_list>
+   14000204c:	48 85 db             	test   rbx,rbx
+   14000204f:	74 18                	je     140002069 <__mingw_TLScallback+0x99>
+   140002051:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+   140002058:	48 89 d9             	mov    rcx,rbx
+   14000205b:	48 8b 5b 10          	mov    rbx,QWORD PTR [rbx+0x10]
+   14000205f:	e8 4c 08 00 00       	call   1400028b0 <free>
+   140002064:	48 85 db             	test   rbx,rbx
+   140002067:	75 ef                	jne    140002058 <__mingw_TLScallback+0x88>
+   140002069:	48 8d 0d 90 50 00 00 	lea    rcx,[rip+0x5090]        # 140007100 <__mingwthr_cs>
+   140002070:	48 c7 05 65 50 00 00 	mov    QWORD PTR [rip+0x5065],0x0        # 1400070e0 <key_dtor_list>
+   140002077:	00 00 00 00 
+   14000207b:	c7 05 63 50 00 00 00 	mov    DWORD PTR [rip+0x5063],0x0        # 1400070e8 <__mingwthr_cs_init>
+   140002082:	00 00 00 
+   140002085:	ff 15 05 62 00 00    	call   QWORD PTR [rip+0x6205]        # 140008290 <__IAT_start__>
+   14000208b:	e9 6c ff ff ff       	jmp    140001ffc <__mingw_TLScallback+0x2c>
+   140002090:	e8 6b f6 ff ff       	call   140001700 <_fpreset>
+   140002095:	b8 01 00 00 00       	mov    eax,0x1
+   14000209a:	48 83 c4 20          	add    rsp,0x20
+   14000209e:	5b                   	pop    rbx
+   14000209f:	c3                   	ret
+   1400020a0:	e8 bb fd ff ff       	call   140001e60 <__mingwthr_run_key_dtors.part.0>
+   1400020a5:	eb 93                	jmp    14000203a <__mingw_TLScallback+0x6a>
+   1400020a7:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+   1400020ae:	00 00 
+   1400020b0:	48 8d 0d 49 50 00 00 	lea    rcx,[rip+0x5049]        # 140007100 <__mingwthr_cs>
+   1400020b7:	ff 15 eb 61 00 00    	call   QWORD PTR [rip+0x61eb]        # 1400082a8 <__imp_InitializeCriticalSection>
+   1400020bd:	e9 30 ff ff ff       	jmp    140001ff2 <__mingw_TLScallback+0x22>
+   1400020c2:	90                   	nop
+   1400020c3:	90                   	nop
+   1400020c4:	90                   	nop
+   1400020c5:	90                   	nop
+   1400020c6:	90                   	nop
+   1400020c7:	90                   	nop
+   1400020c8:	90                   	nop
+   1400020c9:	90                   	nop
+   1400020ca:	90                   	nop
+   1400020cb:	90                   	nop
+   1400020cc:	90                   	nop
+   1400020cd:	90                   	nop
+   1400020ce:	90                   	nop
+   1400020cf:	90                   	nop
+
+00000001400020d0 <_ValidateImageBase>:
+   1400020d0:	31 c0                	xor    eax,eax
+   1400020d2:	66 81 39 4d 5a       	cmp    WORD PTR [rcx],0x5a4d
+   1400020d7:	75 0f                	jne    1400020e8 <_ValidateImageBase+0x18>
+   1400020d9:	48 63 51 3c          	movsxd rdx,DWORD PTR [rcx+0x3c]
+   1400020dd:	48 01 d1             	add    rcx,rdx
+   1400020e0:	81 39 50 45 00 00    	cmp    DWORD PTR [rcx],0x4550
+   1400020e6:	74 08                	je     1400020f0 <_ValidateImageBase+0x20>
+   1400020e8:	c3                   	ret
+   1400020e9:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+   1400020f0:	31 c0                	xor    eax,eax
+   1400020f2:	66 81 79 18 0b 02    	cmp    WORD PTR [rcx+0x18],0x20b
+   1400020f8:	0f 94 c0             	sete   al
+   1400020fb:	c3                   	ret
+   1400020fc:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+
+0000000140002100 <_FindPESection>:
+   140002100:	48 63 41 3c          	movsxd rax,DWORD PTR [rcx+0x3c]
+   140002104:	48 01 c1             	add    rcx,rax
+   140002107:	0f b7 41 14          	movzx  eax,WORD PTR [rcx+0x14]
+   14000210b:	44 0f b7 41 06       	movzx  r8d,WORD PTR [rcx+0x6]
+   140002110:	48 8d 44 01 18       	lea    rax,[rcx+rax*1+0x18]
+   140002115:	66 45 85 c0          	test   r8w,r8w
+   140002119:	74 32                	je     14000214d <_FindPESection+0x4d>
+   14000211b:	41 8d 48 ff          	lea    ecx,[r8-0x1]
+   14000211f:	48 8d 0c 89          	lea    rcx,[rcx+rcx*4]
+   140002123:	4c 8d 4c c8 28       	lea    r9,[rax+rcx*8+0x28]
+   140002128:	0f 1f 84 00 00 00 00 	nop    DWORD PTR [rax+rax*1+0x0]
+   14000212f:	00 
+   140002130:	44 8b 40 0c          	mov    r8d,DWORD PTR [rax+0xc]
+   140002134:	4c 89 c1             	mov    rcx,r8
+   140002137:	4c 39 c2             	cmp    rdx,r8
+   14000213a:	72 08                	jb     140002144 <_FindPESection+0x44>
+   14000213c:	03 48 08             	add    ecx,DWORD PTR [rax+0x8]
+   14000213f:	48 39 ca             	cmp    rdx,rcx
+   140002142:	72 0b                	jb     14000214f <_FindPESection+0x4f>
+   140002144:	48 83 c0 28          	add    rax,0x28
+   140002148:	4c 39 c8             	cmp    rax,r9
+   14000214b:	75 e3                	jne    140002130 <_FindPESection+0x30>
+   14000214d:	31 c0                	xor    eax,eax
+   14000214f:	c3                   	ret
+
+0000000140002150 <_FindPESectionByName>:
+   140002150:	57                   	push   rdi
+   140002151:	56                   	push   rsi
+   140002152:	53                   	push   rbx
+   140002153:	48 83 ec 20          	sub    rsp,0x20
+   140002157:	48 89 ce             	mov    rsi,rcx
+   14000215a:	e8 51 06 00 00       	call   1400027b0 <strlen>
+   14000215f:	48 83 f8 08          	cmp    rax,0x8
+   140002163:	77 7b                	ja     1400021e0 <_FindPESectionByName+0x90>
+   140002165:	48 8b 15 34 22 00 00 	mov    rdx,QWORD PTR [rip+0x2234]        # 1400043a0 <.refptr.__ImageBase>
+   14000216c:	31 db                	xor    ebx,ebx
+   14000216e:	66 81 3a 4d 5a       	cmp    WORD PTR [rdx],0x5a4d
+   140002173:	75 59                	jne    1400021ce <_FindPESectionByName+0x7e>
+   140002175:	48 63 42 3c          	movsxd rax,DWORD PTR [rdx+0x3c]
+   140002179:	48 01 d0             	add    rax,rdx
+   14000217c:	81 38 50 45 00 00    	cmp    DWORD PTR [rax],0x4550
+   140002182:	75 4a                	jne    1400021ce <_FindPESectionByName+0x7e>
+   140002184:	66 81 78 18 0b 02    	cmp    WORD PTR [rax+0x18],0x20b
+   14000218a:	75 42                	jne    1400021ce <_FindPESectionByName+0x7e>
+   14000218c:	0f b7 50 14          	movzx  edx,WORD PTR [rax+0x14]
+   140002190:	48 8d 5c 10 18       	lea    rbx,[rax+rdx*1+0x18]
+   140002195:	0f b7 50 06          	movzx  edx,WORD PTR [rax+0x6]
+   140002199:	66 85 d2             	test   dx,dx
+   14000219c:	74 42                	je     1400021e0 <_FindPESectionByName+0x90>
+   14000219e:	8d 42 ff             	lea    eax,[rdx-0x1]
+   1400021a1:	48 8d 04 80          	lea    rax,[rax+rax*4]
+   1400021a5:	48 8d 7c c3 28       	lea    rdi,[rbx+rax*8+0x28]
+   1400021aa:	eb 0d                	jmp    1400021b9 <_FindPESectionByName+0x69>
+   1400021ac:	0f 1f 40 00          	nop    DWORD PTR [rax+0x0]
+   1400021b0:	48 83 c3 28          	add    rbx,0x28
+   1400021b4:	48 39 fb             	cmp    rbx,rdi
+   1400021b7:	74 27                	je     1400021e0 <_FindPESectionByName+0x90>
+   1400021b9:	41 b8 08 00 00 00    	mov    r8d,0x8
+   1400021bf:	48 89 f2             	mov    rdx,rsi
+   1400021c2:	48 89 d9             	mov    rcx,rbx
+   1400021c5:	e8 ee 05 00 00       	call   1400027b8 <strncmp>
+   1400021ca:	85 c0                	test   eax,eax
+   1400021cc:	75 e2                	jne    1400021b0 <_FindPESectionByName+0x60>
+   1400021ce:	48 89 d8             	mov    rax,rbx
+   1400021d1:	48 83 c4 20          	add    rsp,0x20
+   1400021d5:	5b                   	pop    rbx
+   1400021d6:	5e                   	pop    rsi
+   1400021d7:	5f                   	pop    rdi
+   1400021d8:	c3                   	ret
+   1400021d9:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+   1400021e0:	31 db                	xor    ebx,ebx
+   1400021e2:	48 89 d8             	mov    rax,rbx
+   1400021e5:	48 83 c4 20          	add    rsp,0x20
+   1400021e9:	5b                   	pop    rbx
+   1400021ea:	5e                   	pop    rsi
+   1400021eb:	5f                   	pop    rdi
+   1400021ec:	c3                   	ret
+   1400021ed:	0f 1f 00             	nop    DWORD PTR [rax]
+
+00000001400021f0 <__mingw_GetSectionForAddress>:
+   1400021f0:	48 8b 15 a9 21 00 00 	mov    rdx,QWORD PTR [rip+0x21a9]        # 1400043a0 <.refptr.__ImageBase>
+   1400021f7:	31 c0                	xor    eax,eax
+   1400021f9:	66 81 3a 4d 5a       	cmp    WORD PTR [rdx],0x5a4d
+   1400021fe:	75 10                	jne    140002210 <__mingw_GetSectionForAddress+0x20>
+   140002200:	4c 63 42 3c          	movsxd r8,DWORD PTR [rdx+0x3c]
+   140002204:	49 01 d0             	add    r8,rdx
+   140002207:	41 81 38 50 45 00 00 	cmp    DWORD PTR [r8],0x4550
+   14000220e:	74 08                	je     140002218 <__mingw_GetSectionForAddress+0x28>
+   140002210:	c3                   	ret
+   140002211:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+   140002218:	66 41 81 78 18 0b 02 	cmp    WORD PTR [r8+0x18],0x20b
+   14000221f:	75 ef                	jne    140002210 <__mingw_GetSectionForAddress+0x20>
+   140002221:	41 0f b7 40 14       	movzx  eax,WORD PTR [r8+0x14]
+   140002226:	48 29 d1             	sub    rcx,rdx
+   140002229:	49 8d 44 00 18       	lea    rax,[r8+rax*1+0x18]
+   14000222e:	45 0f b7 40 06       	movzx  r8d,WORD PTR [r8+0x6]
+   140002233:	66 45 85 c0          	test   r8w,r8w
+   140002237:	74 34                	je     14000226d <__mingw_GetSectionForAddress+0x7d>
+   140002239:	41 8d 50 ff          	lea    edx,[r8-0x1]
+   14000223d:	48 8d 14 92          	lea    rdx,[rdx+rdx*4]
+   140002241:	4c 8d 4c d0 28       	lea    r9,[rax+rdx*8+0x28]
+   140002246:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+   14000224d:	00 00 00 
+   140002250:	44 8b 40 0c          	mov    r8d,DWORD PTR [rax+0xc]
+   140002254:	4c 89 c2             	mov    rdx,r8
+   140002257:	4c 39 c1             	cmp    rcx,r8
+   14000225a:	72 08                	jb     140002264 <__mingw_GetSectionForAddress+0x74>
+   14000225c:	03 50 08             	add    edx,DWORD PTR [rax+0x8]
+   14000225f:	48 39 d1             	cmp    rcx,rdx
+   140002262:	72 ac                	jb     140002210 <__mingw_GetSectionForAddress+0x20>
+   140002264:	48 83 c0 28          	add    rax,0x28
+   140002268:	4c 39 c8             	cmp    rax,r9
+   14000226b:	75 e3                	jne    140002250 <__mingw_GetSectionForAddress+0x60>
+   14000226d:	31 c0                	xor    eax,eax
+   14000226f:	c3                   	ret
+
+0000000140002270 <__mingw_GetSectionCount>:
+   140002270:	48 8b 05 29 21 00 00 	mov    rax,QWORD PTR [rip+0x2129]        # 1400043a0 <.refptr.__ImageBase>
+   140002277:	31 c9                	xor    ecx,ecx
+   140002279:	66 81 38 4d 5a       	cmp    WORD PTR [rax],0x5a4d
+   14000227e:	75 0f                	jne    14000228f <__mingw_GetSectionCount+0x1f>
+   140002280:	48 63 50 3c          	movsxd rdx,DWORD PTR [rax+0x3c]
+   140002284:	48 01 d0             	add    rax,rdx
+   140002287:	81 38 50 45 00 00    	cmp    DWORD PTR [rax],0x4550
+   14000228d:	74 09                	je     140002298 <__mingw_GetSectionCount+0x28>
+   14000228f:	89 c8                	mov    eax,ecx
+   140002291:	c3                   	ret
+   140002292:	66 0f 1f 44 00 00    	nop    WORD PTR [rax+rax*1+0x0]
+   140002298:	66 81 78 18 0b 02    	cmp    WORD PTR [rax+0x18],0x20b
+   14000229e:	75 ef                	jne    14000228f <__mingw_GetSectionCount+0x1f>
+   1400022a0:	0f b7 48 06          	movzx  ecx,WORD PTR [rax+0x6]
+   1400022a4:	89 c8                	mov    eax,ecx
+   1400022a6:	c3                   	ret
+   1400022a7:	66 0f 1f 84 00 00 00 	nop    WORD PTR [rax+rax*1+0x0]
+   1400022ae:	00 00 
+
+00000001400022b0 <_FindPESectionExec>:
+   1400022b0:	4c 8b 05 e9 20 00 00 	mov    r8,QWORD PTR [rip+0x20e9]        # 1400043a0 <.refptr.__ImageBase>
+   1400022b7:	31 c0                	xor    eax,eax
+   1400022b9:	66 41 81 38 4d 5a    	cmp    WORD PTR [r8],0x5a4d
+   1400022bf:	75 0f                	jne    1400022d0 <_FindPESectionExec+0x20>
+   1400022c1:	49 63 50 3c          	movsxd rdx,DWORD PTR [r8+0x3c]
+   1400022c5:	4c 01 c2             	add    rdx,r8
+   1400022c8:	81 3a 50 45 00 00    	cmp    DWORD PTR [rdx],0x4550
+   1400022ce:	74 08                	je     1400022d8 <_FindPESectionExec+0x28>
+   1400022d0:	c3                   	ret
+   1400022d1:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+   1400022d8:	66 81 7a 18 0b 02    	cmp    WORD PTR [rdx+0x18],0x20b
+   1400022de:	75 f0                	jne    1400022d0 <_FindPESectionExec+0x20>
+   1400022e0:	0f b7 42 14          	movzx  eax,WORD PTR [rdx+0x14]
+   1400022e4:	44 0f b7 42 06       	movzx  r8d,WORD PTR [rdx+0x6]
+   1400022e9:	48 8d 44 02 18       	lea    rax,[rdx+rax*1+0x18]
+   1400022ee:	66 45 85 c0          	test   r8w,r8w
+   1400022f2:	74 2c                	je     140002320 <_FindPESectionExec+0x70>
+   1400022f4:	41 8d 50 ff          	lea    edx,[r8-0x1]
+   1400022f8:	48 8d 14 92          	lea    rdx,[rdx+rdx*4]
+   1400022fc:	48 8d 54 d0 28       	lea    rdx,[rax+rdx*8+0x28]
+   140002301:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+   140002308:	f6 40 27 20          	test   BYTE PTR [rax+0x27],0x20
+   14000230c:	74 09                	je     140002317 <_FindPESectionExec+0x67>
+   14000230e:	48 85 c9             	test   rcx,rcx
+   140002311:	74 bd                	je     1400022d0 <_FindPESectionExec+0x20>
+   140002313:	48 83 e9 01          	sub    rcx,0x1
+   140002317:	48 83 c0 28          	add    rax,0x28
+   14000231b:	48 39 c2             	cmp    rdx,rax
+   14000231e:	75 e8                	jne    140002308 <_FindPESectionExec+0x58>
+   140002320:	31 c0                	xor    eax,eax
+   140002322:	c3                   	ret
+   140002323:	66 66 2e 0f 1f 84 00 	data16 cs nop WORD PTR [rax+rax*1+0x0]
+   14000232a:	00 00 00 00 
+   14000232e:	66 90                	xchg   ax,ax
+
+0000000140002330 <_GetPEImageBase>:
+   140002330:	48 8b 05 69 20 00 00 	mov    rax,QWORD PTR [rip+0x2069]        # 1400043a0 <.refptr.__ImageBase>
+   140002337:	31 d2                	xor    edx,edx
+   140002339:	66 81 38 4d 5a       	cmp    WORD PTR [rax],0x5a4d
+   14000233e:	75 0f                	jne    14000234f <_GetPEImageBase+0x1f>
+   140002340:	48 63 48 3c          	movsxd rcx,DWORD PTR [rax+0x3c]
+   140002344:	48 01 c1             	add    rcx,rax
+   140002347:	81 39 50 45 00 00    	cmp    DWORD PTR [rcx],0x4550
+   14000234d:	74 09                	je     140002358 <_GetPEImageBase+0x28>
+   14000234f:	48 89 d0             	mov    rax,rdx
+   140002352:	c3                   	ret
+   140002353:	0f 1f 44 00 00       	nop    DWORD PTR [rax+rax*1+0x0]
+   140002358:	66 81 79 18 0b 02    	cmp    WORD PTR [rcx+0x18],0x20b
+   14000235e:	48 0f 44 d0          	cmove  rdx,rax
+   140002362:	48 89 d0             	mov    rax,rdx
+   140002365:	c3                   	ret
+   140002366:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+   14000236d:	00 00 00 
+
+0000000140002370 <_IsNonwritableInCurrentImage>:
+   140002370:	48 8b 15 29 20 00 00 	mov    rdx,QWORD PTR [rip+0x2029]        # 1400043a0 <.refptr.__ImageBase>
+   140002377:	31 c0                	xor    eax,eax
+   140002379:	66 81 3a 4d 5a       	cmp    WORD PTR [rdx],0x5a4d
+   14000237e:	75 10                	jne    140002390 <_IsNonwritableInCurrentImage+0x20>
+   140002380:	4c 63 42 3c          	movsxd r8,DWORD PTR [rdx+0x3c]
+   140002384:	49 01 d0             	add    r8,rdx
+   140002387:	41 81 38 50 45 00 00 	cmp    DWORD PTR [r8],0x4550
+   14000238e:	74 08                	je     140002398 <_IsNonwritableInCurrentImage+0x28>
+   140002390:	c3                   	ret
+   140002391:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+   140002398:	66 41 81 78 18 0b 02 	cmp    WORD PTR [r8+0x18],0x20b
+   14000239f:	75 ef                	jne    140002390 <_IsNonwritableInCurrentImage+0x20>
+   1400023a1:	48 29 d1             	sub    rcx,rdx
+   1400023a4:	45 0f b7 48 06       	movzx  r9d,WORD PTR [r8+0x6]
+   1400023a9:	41 0f b7 50 14       	movzx  edx,WORD PTR [r8+0x14]
+   1400023ae:	49 8d 54 10 18       	lea    rdx,[r8+rdx*1+0x18]
+   1400023b3:	66 45 85 c9          	test   r9w,r9w
+   1400023b7:	74 d7                	je     140002390 <_IsNonwritableInCurrentImage+0x20>
+   1400023b9:	41 8d 41 ff          	lea    eax,[r9-0x1]
+   1400023bd:	48 8d 04 80          	lea    rax,[rax+rax*4]
+   1400023c1:	4c 8d 4c c2 28       	lea    r9,[rdx+rax*8+0x28]
+   1400023c6:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+   1400023cd:	00 00 00 
+   1400023d0:	44 8b 42 0c          	mov    r8d,DWORD PTR [rdx+0xc]
+   1400023d4:	4c 89 c0             	mov    rax,r8
+   1400023d7:	4c 39 c1             	cmp    rcx,r8
+   1400023da:	72 08                	jb     1400023e4 <_IsNonwritableInCurrentImage+0x74>
+   1400023dc:	03 42 08             	add    eax,DWORD PTR [rdx+0x8]
+   1400023df:	48 39 c1             	cmp    rcx,rax
+   1400023e2:	72 0c                	jb     1400023f0 <_IsNonwritableInCurrentImage+0x80>
+   1400023e4:	48 83 c2 28          	add    rdx,0x28
+   1400023e8:	4c 39 ca             	cmp    rdx,r9
+   1400023eb:	75 e3                	jne    1400023d0 <_IsNonwritableInCurrentImage+0x60>
+   1400023ed:	31 c0                	xor    eax,eax
+   1400023ef:	c3                   	ret
+   1400023f0:	8b 42 24             	mov    eax,DWORD PTR [rdx+0x24]
+   1400023f3:	f7 d0                	not    eax
+   1400023f5:	c1 e8 1f             	shr    eax,0x1f
+   1400023f8:	c3                   	ret
+   1400023f9:	0f 1f 80 00 00 00 00 	nop    DWORD PTR [rax+0x0]
+
+0000000140002400 <__mingw_enum_import_library_names>:
+   140002400:	4c 8b 1d 99 1f 00 00 	mov    r11,QWORD PTR [rip+0x1f99]        # 1400043a0 <.refptr.__ImageBase>
+   140002407:	45 31 c9             	xor    r9d,r9d
+   14000240a:	66 41 81 3b 4d 5a    	cmp    WORD PTR [r11],0x5a4d
+   140002410:	75 10                	jne    140002422 <__mingw_enum_import_library_names+0x22>
+   140002412:	4d 63 43 3c          	movsxd r8,DWORD PTR [r11+0x3c]
+   140002416:	4d 01 d8             	add    r8,r11
+   140002419:	41 81 38 50 45 00 00 	cmp    DWORD PTR [r8],0x4550
+   140002420:	74 0e                	je     140002430 <__mingw_enum_import_library_names+0x30>
+   140002422:	4c 89 c8             	mov    rax,r9
+   140002425:	c3                   	ret
+   140002426:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+   14000242d:	00 00 00 
+   140002430:	66 41 81 78 18 0b 02 	cmp    WORD PTR [r8+0x18],0x20b
+   140002437:	75 e9                	jne    140002422 <__mingw_enum_import_library_names+0x22>
+   140002439:	41 8b 80 90 00 00 00 	mov    eax,DWORD PTR [r8+0x90]
+   140002440:	85 c0                	test   eax,eax
+   140002442:	74 de                	je     140002422 <__mingw_enum_import_library_names+0x22>
+   140002444:	41 0f b7 50 14       	movzx  edx,WORD PTR [r8+0x14]
+   140002449:	45 0f b7 50 06       	movzx  r10d,WORD PTR [r8+0x6]
+   14000244e:	49 8d 54 10 18       	lea    rdx,[r8+rdx*1+0x18]
+   140002453:	66 45 85 d2          	test   r10w,r10w
+   140002457:	74 c9                	je     140002422 <__mingw_enum_import_library_names+0x22>
+   140002459:	45 8d 42 ff          	lea    r8d,[r10-0x1]
+   14000245d:	4f 8d 04 80          	lea    r8,[r8+r8*4]
+   140002461:	4e 8d 54 c2 28       	lea    r10,[rdx+r8*8+0x28]
+   140002466:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+   14000246d:	00 00 00 
+   140002470:	44 8b 4a 0c          	mov    r9d,DWORD PTR [rdx+0xc]
+   140002474:	4d 89 c8             	mov    r8,r9
+   140002477:	4c 39 c8             	cmp    rax,r9
+   14000247a:	72 09                	jb     140002485 <__mingw_enum_import_library_names+0x85>
+   14000247c:	44 03 42 08          	add    r8d,DWORD PTR [rdx+0x8]
+   140002480:	4c 39 c0             	cmp    rax,r8
+   140002483:	72 13                	jb     140002498 <__mingw_enum_import_library_names+0x98>
+   140002485:	48 83 c2 28          	add    rdx,0x28
+   140002489:	49 39 d2             	cmp    r10,rdx
+   14000248c:	75 e2                	jne    140002470 <__mingw_enum_import_library_names+0x70>
+   14000248e:	45 31 c9             	xor    r9d,r9d
+   140002491:	4c 89 c8             	mov    rax,r9
+   140002494:	c3                   	ret
+   140002495:	0f 1f 00             	nop    DWORD PTR [rax]
+   140002498:	4c 01 d8             	add    rax,r11
+   14000249b:	eb 0a                	jmp    1400024a7 <__mingw_enum_import_library_names+0xa7>
+   14000249d:	0f 1f 00             	nop    DWORD PTR [rax]
+   1400024a0:	83 e9 01             	sub    ecx,0x1
+   1400024a3:	48 83 c0 14          	add    rax,0x14
+   1400024a7:	44 8b 40 04          	mov    r8d,DWORD PTR [rax+0x4]
+   1400024ab:	45 85 c0             	test   r8d,r8d
+   1400024ae:	75 07                	jne    1400024b7 <__mingw_enum_import_library_names+0xb7>
+   1400024b0:	8b 50 0c             	mov    edx,DWORD PTR [rax+0xc]
+   1400024b3:	85 d2                	test   edx,edx
+   1400024b5:	74 d7                	je     14000248e <__mingw_enum_import_library_names+0x8e>
+   1400024b7:	85 c9                	test   ecx,ecx
+   1400024b9:	7f e5                	jg     1400024a0 <__mingw_enum_import_library_names+0xa0>
+   1400024bb:	44 8b 48 0c          	mov    r9d,DWORD PTR [rax+0xc]
+   1400024bf:	4d 01 d9             	add    r9,r11
+   1400024c2:	4c 89 c8             	mov    rax,r9
+   1400024c5:	c3                   	ret
+   1400024c6:	90                   	nop
+   1400024c7:	90                   	nop
+   1400024c8:	90                   	nop
+   1400024c9:	90                   	nop
+   1400024ca:	90                   	nop
+   1400024cb:	90                   	nop
+   1400024cc:	90                   	nop
+   1400024cd:	90                   	nop
+   1400024ce:	90                   	nop
+   1400024cf:	90                   	nop
+
+00000001400024d0 <___chkstk_ms>:
+   1400024d0:	51                   	push   rcx
+   1400024d1:	50                   	push   rax
+   1400024d2:	48 3d 00 10 00 00    	cmp    rax,0x1000
+   1400024d8:	48 8d 4c 24 18       	lea    rcx,[rsp+0x18]
+   1400024dd:	72 19                	jb     1400024f8 <___chkstk_ms+0x28>
+   1400024df:	48 81 e9 00 10 00 00 	sub    rcx,0x1000
+   1400024e6:	48 83 09 00          	or     QWORD PTR [rcx],0x0
+   1400024ea:	48 2d 00 10 00 00    	sub    rax,0x1000
+   1400024f0:	48 3d 00 10 00 00    	cmp    rax,0x1000
+   1400024f6:	77 e7                	ja     1400024df <___chkstk_ms+0xf>
+   1400024f8:	48 29 c1             	sub    rcx,rax
+   1400024fb:	48 83 09 00          	or     QWORD PTR [rcx],0x0
+   1400024ff:	58                   	pop    rax
+   140002500:	59                   	pop    rcx
+   140002501:	c3                   	ret
+   140002502:	90                   	nop
+   140002503:	90                   	nop
+   140002504:	90                   	nop
+   140002505:	90                   	nop
+   140002506:	90                   	nop
+   140002507:	90                   	nop
+   140002508:	90                   	nop
+   140002509:	90                   	nop
+   14000250a:	90                   	nop
+   14000250b:	90                   	nop
+   14000250c:	90                   	nop
+   14000250d:	90                   	nop
+   14000250e:	90                   	nop
+   14000250f:	90                   	nop
+
+0000000140002510 <vfprintf>:
+   140002510:	48 83 ec 38          	sub    rsp,0x38
+   140002514:	45 31 c9             	xor    r9d,r9d
+   140002517:	4c 89 44 24 20       	mov    QWORD PTR [rsp+0x20],r8
+   14000251c:	49 89 d0             	mov    r8,rdx
+   14000251f:	48 89 ca             	mov    rdx,rcx
+   140002522:	31 c9                	xor    ecx,ecx
+   140002524:	e8 af 02 00 00       	call   1400027d8 <__stdio_common_vfprintf>
+   140002529:	48 83 c4 38          	add    rsp,0x38
+   14000252d:	c3                   	ret
+   14000252e:	90                   	nop
+   14000252f:	90                   	nop
+
+0000000140002530 <fprintf>:
+   140002530:	48 83 ec 48          	sub    rsp,0x48
+   140002534:	48 8d 44 24 60       	lea    rax,[rsp+0x60]
+   140002539:	4c 89 44 24 60       	mov    QWORD PTR [rsp+0x60],r8
+   14000253e:	49 89 d0             	mov    r8,rdx
+   140002541:	48 89 ca             	mov    rdx,rcx
+   140002544:	48 89 44 24 20       	mov    QWORD PTR [rsp+0x20],rax
+   140002549:	31 c9                	xor    ecx,ecx
+   14000254b:	4c 89 4c 24 68       	mov    QWORD PTR [rsp+0x68],r9
+   140002550:	45 31 c9             	xor    r9d,r9d
+   140002553:	48 89 44 24 38       	mov    QWORD PTR [rsp+0x38],rax
+   140002558:	e8 7b 02 00 00       	call   1400027d8 <__stdio_common_vfprintf>
+   14000255d:	48 83 c4 48          	add    rsp,0x48
+   140002561:	c3                   	ret
+   140002562:	90                   	nop
+   140002563:	90                   	nop
+   140002564:	90                   	nop
+   140002565:	90                   	nop
+   140002566:	90                   	nop
+   140002567:	90                   	nop
+   140002568:	90                   	nop
+   140002569:	90                   	nop
+   14000256a:	90                   	nop
+   14000256b:	90                   	nop
+   14000256c:	90                   	nop
+   14000256d:	90                   	nop
+   14000256e:	90                   	nop
+   14000256f:	90                   	nop
+
+0000000140002570 <_get_output_format>:
+   140002570:	31 c0                	xor    eax,eax
+   140002572:	c3                   	ret
+   140002573:	66 66 2e 0f 1f 84 00 	data16 cs nop WORD PTR [rax+rax*1+0x0]
+   14000257a:	00 00 00 00 
+   14000257e:	66 90                	xchg   ax,ax
+
+0000000140002580 <__getmainargs>:
+   140002580:	41 54                	push   r12
+   140002582:	55                   	push   rbp
+   140002583:	57                   	push   rdi
+   140002584:	56                   	push   rsi
+   140002585:	53                   	push   rbx
+   140002586:	48 83 ec 20          	sub    rsp,0x20
+   14000258a:	4c 8b 64 24 70       	mov    r12,QWORD PTR [rsp+0x70]
+   14000258f:	44 89 cd             	mov    ebp,r9d
+   140002592:	48 89 d6             	mov    rsi,rdx
+   140002595:	4c 89 c3             	mov    rbx,r8
+   140002598:	48 89 cf             	mov    rdi,rcx
+   14000259b:	e8 98 02 00 00       	call   140002838 <_initialize_narrow_environment>
+   1400025a0:	83 fd 01             	cmp    ebp,0x1
+   1400025a3:	b9 01 00 00 00       	mov    ecx,0x1
+   1400025a8:	83 d9 ff             	sbb    ecx,0xffffffff
+   1400025ab:	e8 60 02 00 00       	call   140002810 <_configure_narrow_argv>
+   1400025b0:	e8 3b 02 00 00       	call   1400027f0 <__p___argc>
+   1400025b5:	8b 00                	mov    eax,DWORD PTR [rax]
+   1400025b7:	89 07                	mov    DWORD PTR [rdi],eax
+   1400025b9:	e8 3a 02 00 00       	call   1400027f8 <__p___argv>
+   1400025be:	48 8b 00             	mov    rax,QWORD PTR [rax]
+   1400025c1:	48 89 06             	mov    QWORD PTR [rsi],rax
+   1400025c4:	e8 f7 02 00 00       	call   1400028c0 <__p__environ>
+   1400025c9:	48 8b 00             	mov    rax,QWORD PTR [rax]
+   1400025cc:	48 89 03             	mov    QWORD PTR [rbx],rax
+   1400025cf:	4d 85 e4             	test   r12,r12
+   1400025d2:	74 09                	je     1400025dd <__getmainargs+0x5d>
+   1400025d4:	41 8b 0c 24          	mov    ecx,DWORD PTR [r12]
+   1400025d8:	e8 c3 02 00 00       	call   1400028a0 <_set_new_mode>
+   1400025dd:	31 c0                	xor    eax,eax
+   1400025df:	48 83 c4 20          	add    rsp,0x20
+   1400025e3:	5b                   	pop    rbx
+   1400025e4:	5e                   	pop    rsi
+   1400025e5:	5f                   	pop    rdi
+   1400025e6:	5d                   	pop    rbp
+   1400025e7:	41 5c                	pop    r12
+   1400025e9:	c3                   	ret
+   1400025ea:	66 0f 1f 44 00 00    	nop    WORD PTR [rax+rax*1+0x0]
+
+00000001400025f0 <__wgetmainargs>:
+   1400025f0:	41 54                	push   r12
+   1400025f2:	55                   	push   rbp
+   1400025f3:	57                   	push   rdi
+   1400025f4:	56                   	push   rsi
+   1400025f5:	53                   	push   rbx
+   1400025f6:	48 83 ec 20          	sub    rsp,0x20
+   1400025fa:	4c 8b 64 24 70       	mov    r12,QWORD PTR [rsp+0x70]
+   1400025ff:	44 89 cd             	mov    ebp,r9d
+   140002602:	48 89 d6             	mov    rsi,rdx
+   140002605:	4c 89 c3             	mov    rbx,r8
+   140002608:	48 89 cf             	mov    rdi,rcx
+   14000260b:	e8 30 02 00 00       	call   140002840 <_initialize_wide_environment>
+   140002610:	83 fd 01             	cmp    ebp,0x1
+   140002613:	b9 01 00 00 00       	mov    ecx,0x1
+   140002618:	83 d9 ff             	sbb    ecx,0xffffffff
+   14000261b:	e8 f8 01 00 00       	call   140002818 <_configure_wide_argv>
+   140002620:	e8 cb 01 00 00       	call   1400027f0 <__p___argc>
+   140002625:	8b 00                	mov    eax,DWORD PTR [rax]
+   140002627:	89 07                	mov    DWORD PTR [rdi],eax
+   140002629:	e8 d2 01 00 00       	call   140002800 <__p___wargv>
+   14000262e:	48 8b 00             	mov    rax,QWORD PTR [rax]
+   140002631:	48 89 06             	mov    QWORD PTR [rsi],rax
+   140002634:	e8 8f 02 00 00       	call   1400028c8 <__p__wenviron>
+   140002639:	48 8b 00             	mov    rax,QWORD PTR [rax]
+   14000263c:	48 89 03             	mov    QWORD PTR [rbx],rax
+   14000263f:	4d 85 e4             	test   r12,r12
+   140002642:	74 09                	je     14000264d <__wgetmainargs+0x5d>
+   140002644:	41 8b 0c 24          	mov    ecx,DWORD PTR [r12]
+   140002648:	e8 53 02 00 00       	call   1400028a0 <_set_new_mode>
+   14000264d:	31 c0                	xor    eax,eax
+   14000264f:	48 83 c4 20          	add    rsp,0x20
+   140002653:	5b                   	pop    rbx
+   140002654:	5e                   	pop    rsi
+   140002655:	5f                   	pop    rdi
+   140002656:	5d                   	pop    rbp
+   140002657:	41 5c                	pop    r12
+   140002659:	c3                   	ret
+   14000265a:	66 0f 1f 44 00 00    	nop    WORD PTR [rax+rax*1+0x0]
+
+0000000140002660 <_onexit>:
+   140002660:	53                   	push   rbx
+   140002661:	48 83 ec 20          	sub    rsp,0x20
+   140002665:	48 89 cb             	mov    rbx,rcx
+   140002668:	e8 bb 01 00 00       	call   140002828 <_crt_atexit>
+   14000266d:	85 c0                	test   eax,eax
+   14000266f:	b8 00 00 00 00       	mov    eax,0x0
+   140002674:	48 0f 44 c3          	cmove  rax,rbx
+   140002678:	48 83 c4 20          	add    rsp,0x20
+   14000267c:	5b                   	pop    rbx
+   14000267d:	c3                   	ret
+   14000267e:	66 90                	xchg   ax,ax
+
+0000000140002680 <at_quick_exit>:
+   140002680:	48 8b 05 b9 1d 00 00 	mov    rax,QWORD PTR [rip+0x1db9]        # 140004440 <.refptr.__mingw_module_is_dll>
+   140002687:	80 38 00             	cmp    BYTE PTR [rax],0x0
+   14000268a:	74 04                	je     140002690 <at_quick_exit+0x10>
+   14000268c:	31 c0                	xor    eax,eax
+   14000268e:	c3                   	ret
+   14000268f:	90                   	nop
+   140002690:	e9 8b 01 00 00       	jmp    140002820 <_crt_at_quick_exit>
+   140002695:	66 66 2e 0f 1f 84 00 	data16 cs nop WORD PTR [rax+rax*1+0x0]
+   14000269c:	00 00 00 00 
+
+00000001400026a0 <_amsg_exit>:
+   1400026a0:	53                   	push   rbx
+   1400026a1:	48 83 ec 20          	sub    rsp,0x20
+   1400026a5:	89 cb                	mov    ebx,ecx
+   1400026a7:	b9 02 00 00 00       	mov    ecx,0x2
+   1400026ac:	e8 0f 01 00 00       	call   1400027c0 <__acrt_iob_func>
+   1400026b1:	41 89 d8             	mov    r8d,ebx
+   1400026b4:	48 8d 15 95 1c 00 00 	lea    rdx,[rip+0x1c95]        # 140004350 <.rdata>
+   1400026bb:	48 89 c1             	mov    rcx,rax
+   1400026be:	e8 6d fe ff ff       	call   140002530 <fprintf>
+   1400026c3:	b9 ff 00 00 00       	mov    ecx,0xff
+   1400026c8:	e8 63 01 00 00       	call   140002830 <_exit>
+   1400026cd:	90                   	nop
+   1400026ce:	66 90                	xchg   ax,ax
+
+00000001400026d0 <__ms_fwprintf>:
+   1400026d0:	48 83 ec 48          	sub    rsp,0x48
+   1400026d4:	48 8d 44 24 60       	lea    rax,[rsp+0x60]
+   1400026d9:	4c 89 44 24 60       	mov    QWORD PTR [rsp+0x60],r8
+   1400026de:	49 89 d0             	mov    r8,rdx
+   1400026e1:	48 89 ca             	mov    rdx,rcx
+   1400026e4:	48 89 44 24 20       	mov    QWORD PTR [rsp+0x20],rax
+   1400026e9:	b9 04 00 00 00       	mov    ecx,0x4
+   1400026ee:	4c 89 4c 24 68       	mov    QWORD PTR [rsp+0x68],r9
+   1400026f3:	45 31 c9             	xor    r9d,r9d
+   1400026f6:	48 89 44 24 38       	mov    QWORD PTR [rsp+0x38],rax
+   1400026fb:	e8 e0 00 00 00       	call   1400027e0 <__stdio_common_vfwprintf>
+   140002700:	48 83 c4 48          	add    rsp,0x48
+   140002704:	c3                   	ret
+   140002705:	66 66 2e 0f 1f 84 00 	data16 cs nop WORD PTR [rax+rax*1+0x0]
+   14000270c:	00 00 00 00 
+
+0000000140002710 <tzset>:
+   140002710:	48 83 ec 28          	sub    rsp,0x28
+   140002714:	48 8b 05 d5 1c 00 00 	mov    rax,QWORD PTR [rip+0x1cd5]        # 1400043f0 <.refptr.__imp__tzset>
+   14000271b:	ff 10                	call   QWORD PTR [rax]
+   14000271d:	e8 7e 00 00 00       	call   1400027a0 <__tzname>
+   140002722:	48 89 05 97 09 00 00 	mov    QWORD PTR [rip+0x997],rax        # 1400030c0 <__imp_tzname>
+   140002729:	e8 6a 00 00 00       	call   140002798 <__timezone>
+   14000272e:	48 89 05 83 09 00 00 	mov    QWORD PTR [rip+0x983],rax        # 1400030b8 <__imp_timezone>
+   140002735:	e8 56 00 00 00       	call   140002790 <__daylight>
+   14000273a:	48 89 05 6f 09 00 00 	mov    QWORD PTR [rip+0x96f],rax        # 1400030b0 <__imp_daylight>
+   140002741:	48 83 c4 28          	add    rsp,0x28
+   140002745:	c3                   	ret
+   140002746:	66 2e 0f 1f 84 00 00 	cs nop WORD PTR [rax+rax*1+0x0]
+   14000274d:	00 00 00 
+
+0000000140002750 <_tzset>:
+   140002750:	48 83 ec 28          	sub    rsp,0x28
+   140002754:	48 8b 05 95 1c 00 00 	mov    rax,QWORD PTR [rip+0x1c95]        # 1400043f0 <.refptr.__imp__tzset>
+   14000275b:	ff 10                	call   QWORD PTR [rax]
+   14000275d:	e8 3e 00 00 00       	call   1400027a0 <__tzname>
+   140002762:	48 89 05 57 09 00 00 	mov    QWORD PTR [rip+0x957],rax        # 1400030c0 <__imp_tzname>
+   140002769:	e8 2a 00 00 00       	call   140002798 <__timezone>
+   14000276e:	48 89 05 43 09 00 00 	mov    QWORD PTR [rip+0x943],rax        # 1400030b8 <__imp_timezone>
+   140002775:	e8 16 00 00 00       	call   140002790 <__daylight>
+   14000277a:	48 89 05 2f 09 00 00 	mov    QWORD PTR [rip+0x92f],rax        # 1400030b0 <__imp_daylight>
+   140002781:	48 83 c4 28          	add    rsp,0x28
+   140002785:	c3                   	ret
+   140002786:	90                   	nop
+   140002787:	90                   	nop
+   140002788:	90                   	nop
+   140002789:	90                   	nop
+   14000278a:	90                   	nop
+   14000278b:	90                   	nop
+   14000278c:	90                   	nop
+   14000278d:	90                   	nop
+   14000278e:	90                   	nop
+   14000278f:	90                   	nop
+
+0000000140002790 <__daylight>:
+   140002790:	ff 25 9a 5c 00 00    	jmp    QWORD PTR [rip+0x5c9a]        # 140008430 <__imp___daylight>
+   140002796:	90                   	nop
+   140002797:	90                   	nop
+
+0000000140002798 <__timezone>:
+   140002798:	ff 25 9a 5c 00 00    	jmp    QWORD PTR [rip+0x5c9a]        # 140008438 <__imp___timezone>
+   14000279e:	90                   	nop
+   14000279f:	90                   	nop
+
+00000001400027a0 <__tzname>:
+   1400027a0:	ff 25 9a 5c 00 00    	jmp    QWORD PTR [rip+0x5c9a]        # 140008440 <__imp___tzname>
+   1400027a6:	90                   	nop
+   1400027a7:	90                   	nop
+
+00000001400027a8 <.text>:
+   1400027a8:	0f 1f 84 00 00 00 00 	nop    DWORD PTR [rax+rax*1+0x0]
+   1400027af:	00 
+
+00000001400027b0 <strlen>:
+   1400027b0:	ff 25 62 5c 00 00    	jmp    QWORD PTR [rip+0x5c62]        # 140008418 <__imp_strlen>
+   1400027b6:	90                   	nop
+   1400027b7:	90                   	nop
+
+00000001400027b8 <strncmp>:
+   1400027b8:	ff 25 62 5c 00 00    	jmp    QWORD PTR [rip+0x5c62]        # 140008420 <__imp_strncmp>
+   1400027be:	90                   	nop
+   1400027bf:	90                   	nop
+
+00000001400027c0 <__acrt_iob_func>:
+   1400027c0:	ff 25 1a 5c 00 00    	jmp    QWORD PTR [rip+0x5c1a]        # 1400083e0 <__imp___acrt_iob_func>
+   1400027c6:	90                   	nop
+   1400027c7:	90                   	nop
+
+00000001400027c8 <__p__commode>:
+   1400027c8:	ff 25 1a 5c 00 00    	jmp    QWORD PTR [rip+0x5c1a]        # 1400083e8 <__imp___p__commode>
+   1400027ce:	90                   	nop
+   1400027cf:	90                   	nop
+
+00000001400027d0 <__p__fmode>:
+   1400027d0:	ff 25 1a 5c 00 00    	jmp    QWORD PTR [rip+0x5c1a]        # 1400083f0 <__imp___p__fmode>
+   1400027d6:	90                   	nop
+   1400027d7:	90                   	nop
+
+00000001400027d8 <__stdio_common_vfprintf>:
+   1400027d8:	ff 25 1a 5c 00 00    	jmp    QWORD PTR [rip+0x5c1a]        # 1400083f8 <__imp___stdio_common_vfprintf>
+   1400027de:	90                   	nop
+   1400027df:	90                   	nop
+
+00000001400027e0 <__stdio_common_vfwprintf>:
+   1400027e0:	ff 25 1a 5c 00 00    	jmp    QWORD PTR [rip+0x5c1a]        # 140008400 <__imp___stdio_common_vfwprintf>
+   1400027e6:	90                   	nop
+   1400027e7:	90                   	nop
+
+00000001400027e8 <fwrite>:
+   1400027e8:	ff 25 1a 5c 00 00    	jmp    QWORD PTR [rip+0x5c1a]        # 140008408 <__imp_fwrite>
+   1400027ee:	90                   	nop
+   1400027ef:	90                   	nop
+
+00000001400027f0 <__p___argc>:
+   1400027f0:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 140008350 <__imp___p___argc>
+   1400027f6:	90                   	nop
+   1400027f7:	90                   	nop
+
+00000001400027f8 <__p___argv>:
+   1400027f8:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 140008358 <__imp___p___argv>
+   1400027fe:	90                   	nop
+   1400027ff:	90                   	nop
+
+0000000140002800 <__p___wargv>:
+   140002800:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 140008360 <__imp___p___wargv>
+   140002806:	90                   	nop
+   140002807:	90                   	nop
+
+0000000140002808 <_cexit>:
+   140002808:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 140008368 <__imp__cexit>
+   14000280e:	90                   	nop
+   14000280f:	90                   	nop
+
+0000000140002810 <_configure_narrow_argv>:
+   140002810:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 140008370 <__imp__configure_narrow_argv>
+   140002816:	90                   	nop
+   140002817:	90                   	nop
+
+0000000140002818 <_configure_wide_argv>:
+   140002818:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 140008378 <__imp__configure_wide_argv>
+   14000281e:	90                   	nop
+   14000281f:	90                   	nop
+
+0000000140002820 <_crt_at_quick_exit>:
+   140002820:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 140008380 <__imp__crt_at_quick_exit>
+   140002826:	90                   	nop
+   140002827:	90                   	nop
+
+0000000140002828 <_crt_atexit>:
+   140002828:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 140008388 <__imp__crt_atexit>
+   14000282e:	90                   	nop
+   14000282f:	90                   	nop
+
+0000000140002830 <_exit>:
+   140002830:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 140008390 <__imp__exit>
+   140002836:	90                   	nop
+   140002837:	90                   	nop
+
+0000000140002838 <_initialize_narrow_environment>:
+   140002838:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 140008398 <__imp__initialize_narrow_environment>
+   14000283e:	90                   	nop
+   14000283f:	90                   	nop
+
+0000000140002840 <_initialize_wide_environment>:
+   140002840:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 1400083a0 <__imp__initialize_wide_environment>
+   140002846:	90                   	nop
+   140002847:	90                   	nop
+
+0000000140002848 <_initterm>:
+   140002848:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 1400083a8 <__imp__initterm>
+   14000284e:	90                   	nop
+   14000284f:	90                   	nop
+
+0000000140002850 <__set_app_type>:
+   140002850:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 1400083b0 <__imp___set_app_type>
+   140002856:	90                   	nop
+   140002857:	90                   	nop
+
+0000000140002858 <_set_invalid_parameter_handler>:
+   140002858:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 1400083b8 <__imp__set_invalid_parameter_handler>
+   14000285e:	90                   	nop
+   14000285f:	90                   	nop
+
+0000000140002860 <abort>:
+   140002860:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 1400083c0 <__imp_abort>
+   140002866:	90                   	nop
+   140002867:	90                   	nop
+
+0000000140002868 <exit>:
+   140002868:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 1400083c8 <__imp_exit>
+   14000286e:	90                   	nop
+   14000286f:	90                   	nop
+
+0000000140002870 <signal>:
+   140002870:	ff 25 5a 5b 00 00    	jmp    QWORD PTR [rip+0x5b5a]        # 1400083d0 <__imp_signal>
+   140002876:	90                   	nop
+   140002877:	90                   	nop
+   140002878:	0f 1f 84 00 00 00 00 	nop    DWORD PTR [rax+rax*1+0x0]
+   14000287f:	00 
+
+0000000140002880 <__C_specific_handler>:
+   140002880:	ff 25 b2 5a 00 00    	jmp    QWORD PTR [rip+0x5ab2]        # 140008338 <__imp___C_specific_handler>
+   140002886:	90                   	nop
+   140002887:	90                   	nop
+
+0000000140002888 <memcpy>:
+   140002888:	ff 25 b2 5a 00 00    	jmp    QWORD PTR [rip+0x5ab2]        # 140008340 <__imp_memcpy>
+   14000288e:	90                   	nop
+   14000288f:	90                   	nop
+
+0000000140002890 <__setusermatherr>:
+   140002890:	ff 25 92 5a 00 00    	jmp    QWORD PTR [rip+0x5a92]        # 140008328 <__imp___setusermatherr>
+   140002896:	90                   	nop
+   140002897:	90                   	nop
+   140002898:	0f 1f 84 00 00 00 00 	nop    DWORD PTR [rax+rax*1+0x0]
+   14000289f:	00 
+
+00000001400028a0 <_set_new_mode>:
+   1400028a0:	ff 25 5a 5a 00 00    	jmp    QWORD PTR [rip+0x5a5a]        # 140008300 <__imp__set_new_mode>
+   1400028a6:	90                   	nop
+   1400028a7:	90                   	nop
+
+00000001400028a8 <calloc>:
+   1400028a8:	ff 25 5a 5a 00 00    	jmp    QWORD PTR [rip+0x5a5a]        # 140008308 <__imp_calloc>
+   1400028ae:	90                   	nop
+   1400028af:	90                   	nop
+
+00000001400028b0 <free>:
+   1400028b0:	ff 25 5a 5a 00 00    	jmp    QWORD PTR [rip+0x5a5a]        # 140008310 <__imp_free>
+   1400028b6:	90                   	nop
+   1400028b7:	90                   	nop
+
+00000001400028b8 <malloc>:
+   1400028b8:	ff 25 5a 5a 00 00    	jmp    QWORD PTR [rip+0x5a5a]        # 140008318 <__imp_malloc>
+   1400028be:	90                   	nop
+   1400028bf:	90                   	nop
+
+00000001400028c0 <__p__environ>:
+   1400028c0:	ff 25 22 5a 00 00    	jmp    QWORD PTR [rip+0x5a22]        # 1400082e8 <__imp___p__environ>
+   1400028c6:	90                   	nop
+   1400028c7:	90                   	nop
+
+00000001400028c8 <__p__wenviron>:
+   1400028c8:	ff 25 22 5a 00 00    	jmp    QWORD PTR [rip+0x5a22]        # 1400082f0 <__imp___p__wenviron>
+   1400028ce:	90                   	nop
+   1400028cf:	90                   	nop
+
+00000001400028d0 <printf>:
+   1400028d0:	56                   	push   rsi
+   1400028d1:	53                   	push   rbx
+   1400028d2:	48 83 ec 48          	sub    rsp,0x48
+   1400028d6:	48 89 cb             	mov    rbx,rcx
+   1400028d9:	48 8d 74 24 68       	lea    rsi,[rsp+0x68]
+   1400028de:	b9 01 00 00 00       	mov    ecx,0x1
+   1400028e3:	48 89 54 24 68       	mov    QWORD PTR [rsp+0x68],rdx
+   1400028e8:	4c 89 44 24 70       	mov    QWORD PTR [rsp+0x70],r8
+   1400028ed:	4c 89 4c 24 78       	mov    QWORD PTR [rsp+0x78],r9
+   1400028f2:	48 89 74 24 38       	mov    QWORD PTR [rsp+0x38],rsi
+   1400028f7:	e8 c4 fe ff ff       	call   1400027c0 <__acrt_iob_func>
+   1400028fc:	48 89 74 24 20       	mov    QWORD PTR [rsp+0x20],rsi
+   140002901:	45 31 c9             	xor    r9d,r9d
+   140002904:	49 89 d8             	mov    r8,rbx
+   140002907:	48 89 c2             	mov    rdx,rax
+   14000290a:	31 c9                	xor    ecx,ecx
+   14000290c:	e8 c7 fe ff ff       	call   1400027d8 <__stdio_common_vfprintf>
+   140002911:	48 83 c4 48          	add    rsp,0x48
+   140002915:	5b                   	pop    rbx
+   140002916:	5e                   	pop    rsi
+   140002917:	c3                   	ret
+   140002918:	90                   	nop
+   140002919:	90                   	nop
+   14000291a:	90                   	nop
+   14000291b:	90                   	nop
+   14000291c:	90                   	nop
+   14000291d:	90                   	nop
+   14000291e:	90                   	nop
+   14000291f:	90                   	nop
+
+0000000140002920 <VirtualQuery>:
+   140002920:	ff 25 b2 59 00 00    	jmp    QWORD PTR [rip+0x59b2]        # 1400082d8 <__imp_VirtualQuery>
+   140002926:	90                   	nop
+   140002927:	90                   	nop
+
+0000000140002928 <VirtualProtect>:
+   140002928:	ff 25 a2 59 00 00    	jmp    QWORD PTR [rip+0x59a2]        # 1400082d0 <__imp_VirtualProtect>
+   14000292e:	90                   	nop
+   14000292f:	90                   	nop
+
+0000000140002930 <TlsGetValue>:
+   140002930:	ff 25 92 59 00 00    	jmp    QWORD PTR [rip+0x5992]        # 1400082c8 <__imp_TlsGetValue>
+   140002936:	90                   	nop
+   140002937:	90                   	nop
+
+0000000140002938 <Sleep>:
+   140002938:	ff 25 82 59 00 00    	jmp    QWORD PTR [rip+0x5982]        # 1400082c0 <__imp_Sleep>
+   14000293e:	90                   	nop
+   14000293f:	90                   	nop
+
+0000000140002940 <SetUnhandledExceptionFilter>:
+   140002940:	ff 25 72 59 00 00    	jmp    QWORD PTR [rip+0x5972]        # 1400082b8 <__imp_SetUnhandledExceptionFilter>
+   140002946:	90                   	nop
+   140002947:	90                   	nop
+
+0000000140002948 <LeaveCriticalSection>:
+   140002948:	ff 25 62 59 00 00    	jmp    QWORD PTR [rip+0x5962]        # 1400082b0 <__imp_LeaveCriticalSection>
+   14000294e:	90                   	nop
+   14000294f:	90                   	nop
+
+0000000140002950 <InitializeCriticalSection>:
+   140002950:	ff 25 52 59 00 00    	jmp    QWORD PTR [rip+0x5952]        # 1400082a8 <__imp_InitializeCriticalSection>
+   140002956:	90                   	nop
+   140002957:	90                   	nop
+
+0000000140002958 <GetLastError>:
+   140002958:	ff 25 42 59 00 00    	jmp    QWORD PTR [rip+0x5942]        # 1400082a0 <__imp_GetLastError>
+   14000295e:	90                   	nop
+   14000295f:	90                   	nop
+
+0000000140002960 <EnterCriticalSection>:
+   140002960:	ff 25 32 59 00 00    	jmp    QWORD PTR [rip+0x5932]        # 140008298 <__imp_EnterCriticalSection>
+   140002966:	90                   	nop
+   140002967:	90                   	nop
+
+0000000140002968 <DeleteCriticalSection>:
+   140002968:	ff 25 22 59 00 00    	jmp    QWORD PTR [rip+0x5922]        # 140008290 <__IAT_start__>
+   14000296e:	90                   	nop
+   14000296f:	90                   	nop
+
+0000000140002970 <main>:
+   140002970:	53                   	push   rbx
+   140002971:	48 83 ec 20          	sub    rsp,0x20
+   140002975:	e8 86 eb ff ff       	call   140001500 <__main>
+   14000297a:	8b 05 b8 46 00 00    	mov    eax,DWORD PTR [rip+0x46b8]        # 140007038 <k5>
+   140002980:	c7 05 b2 46 00 00 03 	mov    DWORD PTR [rip+0x46b2],0x3        # 14000703c <i>
+   140002987:	00 00 00 
+   14000298a:	83 f8 06             	cmp    eax,0x6
+   14000298d:	7e 14                	jle    1400029a3 <main+0x33>
+   14000298f:	3b 05 9f 46 00 00    	cmp    eax,DWORD PTR [rip+0x469f]        # 140007034 <i4>
+   140002995:	7e 0c                	jle    1400029a3 <main+0x33>
+   140002997:	48 8d 0d 62 16 00 00 	lea    rcx,[rip+0x1662]        # 140004000 <.rdata>
+   14000299e:	e8 2d ff ff ff       	call   1400028d0 <printf>
+   1400029a3:	c7 05 83 46 00 00 10 	mov    DWORD PTR [rip+0x4683],0x2710        # 140007030 <j5>
+   1400029aa:	27 00 00 
+   1400029ad:	31 d2                	xor    edx,edx
+   1400029af:	6a 65                	push   0x65
+   1400029b1:	58                   	pop    rax
+   1400029b2:	ff c8                	dec    eax
+   1400029b4:	74 04                	je     1400029ba <main+0x4a>
+   1400029b6:	b2 01                	mov    dl,0x1
+   1400029b8:	eb f8                	jmp    1400029b2 <main+0x42>
+   1400029ba:	84 d2                	test   dl,dl
+   1400029bc:	75 09                	jne    1400029c7 <main+0x57>
+   1400029be:	83 25 77 46 00 00 00 	and    DWORD PTR [rip+0x4677],0x0        # 14000703c <i>
+   1400029c5:	eb 0a                	jmp    1400029d1 <main+0x61>
+   1400029c7:	c7 05 6b 46 00 00 64 	mov    DWORD PTR [rip+0x466b],0x64        # 14000703c <i>
+   1400029ce:	00 00 00 
+   1400029d1:	c7 05 5d 46 00 00 05 	mov    DWORD PTR [rip+0x465d],0x5        # 140007038 <k5>
+   1400029d8:	00 00 00 
+   1400029db:	31 c0                	xor    eax,eax
+   1400029dd:	48 8d 1d 1c 16 00 00 	lea    rbx,[rip+0x161c]        # 140004000 <.rdata>
+   1400029e4:	89 05 4a 46 00 00    	mov    DWORD PTR [rip+0x464a],eax        # 140007034 <i4>
+   1400029ea:	83 f8 02             	cmp    eax,0x2
+   1400029ed:	7f 12                	jg     140002a01 <main+0x91>
+   1400029ef:	48 89 d9             	mov    rcx,rbx
+   1400029f2:	e8 d9 fe ff ff       	call   1400028d0 <printf>
+   1400029f7:	8b 05 37 46 00 00    	mov    eax,DWORD PTR [rip+0x4637]        # 140007034 <i4>
+   1400029fd:	ff c0                	inc    eax
+   1400029ff:	eb e3                	jmp    1400029e4 <main+0x74>
+   140002a01:	c7 05 31 46 00 00 06 	mov    DWORD PTR [rip+0x4631],0x6        # 14000703c <i>
+   140002a08:	00 00 00 
+   140002a0b:	8b 05 1f 46 00 00    	mov    eax,DWORD PTR [rip+0x461f]        # 140007030 <j5>
+   140002a11:	8d 04 85 07 00 00 00 	lea    eax,[rax*4+0x7]
+   140002a18:	89 05 1a 46 00 00    	mov    DWORD PTR [rip+0x461a],eax        # 140007038 <k5>
+   140002a1e:	31 c0                	xor    eax,eax
+   140002a20:	48 83 c4 20          	add    rsp,0x20
+   140002a24:	5b                   	pop    rbx
+   140002a25:	c3                   	ret
+   140002a26:	90                   	nop
+   140002a27:	90                   	nop
+   140002a28:	90                   	nop
+   140002a29:	90                   	nop
+   140002a2a:	90                   	nop
+   140002a2b:	90                   	nop
+   140002a2c:	90                   	nop
+   140002a2d:	90                   	nop
+   140002a2e:	90                   	nop
+   140002a2f:	90                   	nop
+
+0000000140002a30 <register_frame_ctor>:
+   140002a30:	e9 fb e9 ff ff       	jmp    140001430 <__gcc_register_frame>
+   140002a35:	90                   	nop
+   140002a36:	90                   	nop
+   140002a37:	90                   	nop
+   140002a38:	90                   	nop
+   140002a39:	90                   	nop
+   140002a3a:	90                   	nop
+   140002a3b:	90                   	nop
+   140002a3c:	90                   	nop
+   140002a3d:	90                   	nop
+   140002a3e:	90                   	nop
+   140002a3f:	90                   	nop
+
+0000000140002a40 <__CTOR_LIST__>:
+   140002a40:	ff                   	(bad)
+   140002a41:	ff                   	(bad)
+   140002a42:	ff                   	(bad)
+   140002a43:	ff                   	(bad)
+   140002a44:	ff                   	(bad)
+   140002a45:	ff                   	(bad)
+   140002a46:	ff                   	(bad)
+   140002a47:	ff                   	.byte 0xff
+
+0000000140002a48 <.ctors.65535>:
+   140002a48:	30 2a                	xor    BYTE PTR [rdx],ch
+   140002a4a:	00 40 01             	add    BYTE PTR [rax+0x1],al
+	...
+
+0000000140002a58 <__DTOR_LIST__>:
+   140002a58:	ff                   	(bad)
+   140002a59:	ff                   	(bad)
+   140002a5a:	ff                   	(bad)
+   140002a5b:	ff                   	(bad)
+   140002a5c:	ff                   	(bad)
+   140002a5d:	ff                   	(bad)
+   140002a5e:	ff                   	(bad)
+   140002a5f:	ff 00                	inc    DWORD PTR [rax]
+   140002a61:	00 00                	add    BYTE PTR [rax],al
+   140002a63:	00 00                	add    BYTE PTR [rax],al
+   140002a65:	00 00                	add    BYTE PTR [rax],al
+	...
