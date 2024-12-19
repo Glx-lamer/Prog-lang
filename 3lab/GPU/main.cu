@@ -28,8 +28,8 @@ __global__ void CompK(float* DevMatrix, int diag, int n) {
 	}
 }
 
-__global__ void CompDet(float* DevMatrix, int n, float* det) {
-    __shared__ float PartDet[BLOCK_SIZE];
+__global__ void CompDet(float* DevMatrix, int n, double* det) {
+    __shared__ double PartDet[BLOCK_SIZE];
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
     int tid = threadIdx.x;
 
@@ -39,20 +39,21 @@ __global__ void CompDet(float* DevMatrix, int n, float* det) {
     }
 
     __syncthreads();
+	if (idx < n) {
+		for (int interval = blockDim.x / 2; interval > 0; interval /= 2) {
+			if (tid < interval) {
+				PartDet[tid] *= PartDet[tid + interval];
+			}
+			__syncthreads();
+		}
 
-    for (int interval = blockDim.x / 2; interval > 0; interval /= 2) {
-        if (tid < interval) {
-            PartDet[tid] *= PartDet[tid + interval];
-        }
-        __syncthreads();
-    }
-
-    if (tid == 0) {
-        atomicExch(det, *det * PartDet[0]);
-    }
+		if (tid == 0) {
+			*det *= PartDet[0];
+		}
+	}
 }
 
-void Gauss(float* DevMatrix, int n, float* det) {
+void Gauss(float* DevMatrix, int n, double* det) {
 	for (int diag = 0; diag < n - 1; diag++) {
 
 		int i = n - (diag + 1);
@@ -92,7 +93,7 @@ void FillMatrix(float* DevMatrix, int n) {
 int main(void) {
 	int n;
 
-	printf("Enter size of square matrix, which will be transformed into a triangular >>> ");
+	printf("Enter size of square matrix >>>");
 	fflush(stdin);
 	fscanf(stdin, "%d", &n);
 
@@ -110,17 +111,17 @@ int main(void) {
 		PrintMatrix(HstMatrix, n);
 	}
 
-    float HstDet = 1.0;
-    float *DevDet;
+    double HstDet = 1.0;
+    double *DevDet;
 
-	cudaMalloc((void**)&DevDet, sizeof(float));
-    cudaMemcpy(DevDet, &HstDet, sizeof(float), cudaMemcpyHostToDevice);
+	cudaMalloc((void**)&DevDet, sizeof(double));
+    cudaMemcpy(DevDet, &HstDet, sizeof(double), cudaMemcpyHostToDevice);
 
 	clock_t start = clock();
 	Gauss(DevMatrix, n, DevDet);
 	clock_t end = clock();
 
-    cudaMemcpy(&HstDet, DevDet, sizeof(float), cudaMemcpyDeviceToHost);
+    cudaMemcpy(&HstDet, DevDet, sizeof(double), cudaMemcpyDeviceToHost);
     cudaFree(DevDet);
 
 	cudaMemcpy(HstMatrix, DevMatrix, sizeof(float) * n * n, cudaMemcpyDeviceToHost);
@@ -131,7 +132,7 @@ int main(void) {
 		PrintMatrix(HstMatrix, n);
 	}
 
-    printf("Determenator of matrix - %f\n", HstDet);
+    printf("Determenator of matrix - %lf\n", HstDet);
 	float ms_duration = (float)(end - start) / CLOCKS_PER_SEC * 1000;
 	printf("Time to execute - %f ms\n", ms_duration);
 
